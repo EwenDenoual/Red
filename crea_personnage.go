@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 type Character struct {
-	nom string 
-	classe string 
-	niveau int 
-	pv_max int 
-	pv int 
+	nom    string
+	classe string
+	niveau int
+	pv_max int
+	pv     int
 }
 
 func initCharacter() Character {
@@ -20,8 +20,11 @@ func initCharacter() Character {
 	return player1
 }
 
-func main() {
+func displayInfo() {
 	player1 := initCharacter()
+	fmt.Printf(" Nom : %v\n Classe : %v\n Niveau : %v\n Pv_max : %v\n Pv : %v\n", player1.nom, player1.classe, player1.niveau, player1.pv_max, player1.pv)
+}
 
-	fmt.Printf("name : %v, classe : %v, niveau: %v\n", player1.nom, player1.classe, player1.niveau)
+func main() {
+	displayInfo()
 }
