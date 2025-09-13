@@ -1,6 +1,8 @@
 package red
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Character struct {
 	nom    string
@@ -23,4 +25,6 @@ func initCharacter() Character {
 func DisplayInfo() {
 	player1 := initCharacter()
 	fmt.Printf(" Nom : %v\n Classe : %v\n Niveau : %v\n Pv_max : %v\n Pv : %v\n\n", player1.nom, player1.classe, player1.niveau, player1.pv_max, player1.pv)
+	fmt.Printf("Inventaire : ")
+	AccessInventory()
 }
