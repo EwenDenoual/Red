@@ -1,8 +1,19 @@
 package main
 
-import "red/src"
+import (
+	"fmt"
+	"red/src"
+)
 
 
 func main() {
-	red.DisplayInfo()
+	Character := red.InitCharacter()
+	red.DisplayInfo(Character)
+	var info int
+	fmt.Print("Voulez vous utiliser une potion si oui, entrer le nombre de potion que vous voulez utiliser ")
+	fmt.Scanln(&info)
+
+	if info == 1 {
+		red.TakePot(Character)
+	}
 }
