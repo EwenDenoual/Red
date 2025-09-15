@@ -5,7 +5,6 @@ import (
 	"red/src"
 )
 
-
 func main() {
 	Character := red.InitCharacter()
 	red.DisplayInfo(Character)
@@ -16,4 +15,9 @@ func main() {
 	if info == 1 {
 		red.TakePot(Character)
 	}
+
+	if info == 2 {
+		red.PoisonPot(Character)
+	}
+	
 }
