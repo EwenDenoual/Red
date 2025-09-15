@@ -24,6 +24,14 @@ func InitCharacter() Character {
 	return player1
 }
 
+func IsDead(player1 Character) {
+	if player1.pv == 0 {
+		fmt.Printf("Vous etes mort dommage !!! \n")
+		InitCharacter()
+		DisplayInfo(player1)
+	}
+}
+
 func DisplayInfo(player1 Character) {
 	fmt.Printf(" Nom : %v\n Classe : %v\n Niveau : %v\n Pv_max : %v\n Pv : %v\n\n", player1.nom, player1.classe, player1.niveau, player1.pv_max, player1.pv)
 	fmt.Printf("Inventaire : ")
