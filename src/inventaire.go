@@ -2,6 +2,7 @@ package red
 
 import (
 	"fmt"
+	"time"
 )
 
 type Inventory struct {
@@ -34,4 +35,20 @@ func TakePot(player1 Character) {
 		fmt.Printf("Vous ne disposez pas de potion dans votre inventaire.\n")
 	}
 	
+}
+
+func PoisonPot(player1 Character) {
+	player1.pv -= 10
+	fmt.Printf("Vous venez de recevoir une potion de poison, voici vos PV : %v sur %v \n", player1.pv, player1.pv_max)
+
+	time.Sleep(1 *time.Second)
+	player1.pv -= 10
+	fmt.Printf("La potion de poison fait effet, voici vos PV : %v sur %v \n", player1.pv, player1.pv_max)
+
+	time.Sleep(1 *time.Second)
+	player1.pv -= 10
+	fmt.Printf("Vous perdez de plus en plus de vie, voici vos PV : %v sur %v \n", player1.pv, player1.pv_max)
+
+	time.Sleep(1 *time.Second)
+	fmt.Printf("La potion a fait effet, voici vos PV : %v sur %v \n", player1.pv, player1.pv_max)
 }
