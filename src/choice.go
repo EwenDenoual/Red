@@ -4,7 +4,7 @@ import "fmt"
 
 func Menu(chara Character) Character {
 	var i int
-	Printfct("1: Character stats\n2: Inventory\n\n0: Back", 15, 3)
+	Printfct("1: Character stats\n2: Inventory\n3: Use Potion\n\n0: Back", 15, 4)
 	for {
 		fmt.Scanln(&i)
 		switch i {
@@ -12,12 +12,13 @@ func Menu(chara Character) Character {
 			return chara
 		case 1:
 			DisplayInfo(chara)
-			Printfct("1: Character stats\n2: Inventory\n\n0: Back", 0, 9)
+			Printfct("1: Character stats\n2: Inventory\n3: Use Potion\n\n0: Back", 0, 10)
 		case 2:
 			DisplayInventory(chara)
-			Printfct("1: Character stats\n2: Inventory\n\n0: Back", 2, 7)
-		// case 3:
-		// 	println("la tour")
+			Printfct("1: Character stats\n2: Inventory\n3: Use Potion\n\n0: Back", 2, 8)
+		case 3:
+		 	chara = TakePot(chara)
+			Printfct("1: Character stats\n2: Inventory\n3: Use Potion\n\n0: Back", 2, 7)
 		default:
 			println("invalid")
 		}
