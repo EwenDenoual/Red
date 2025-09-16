@@ -38,8 +38,9 @@ func Choice(chara Character) {
 			Printfct("Welcome to the game :\n\n1: Acces menu\n\n0: Exit", 15, 4)
 		// case 2:
 		// 	println("la foret")
-		// case 3:
-		// 	println("la tour")
+		case 3:
+		 	chara = fight(chara)
+			Printfct("Welcome to the game :\n\n1: Acces menu\n\n0: Exit", 15, 4)
 		default:
 			println("invalid")
 		}
