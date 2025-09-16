@@ -11,6 +11,7 @@ type Character struct {
 	pv_max int
 	pv     int
 	inventaire Inventory
+	spell spellbook
 }
 
 func InitCharacter() Character {
@@ -21,15 +22,19 @@ func InitCharacter() Character {
 	player1.pv_max = 100
 	player1.pv = 40
 	player1.inventaire = initInventory()
+	player1.spell = initSpellbook()
 	return player1
 }
 
-func IsDead(player1 Character) {
+func IsDead(player1 Character) bool {
+	var i int
 	if player1.pv == 0 {
-		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVous etes mort dommage !!! \n")
+		Printfct("Vous etes mort dommage !!!  :)", 30, 0)
+		fmt.Scanln(&i)
 		player1 = InitCharacter()
-		DisplayInfo(player1)
+		return true
 	}
+	return false
 }
 
 func DisplayInfo(player1 Character) {
