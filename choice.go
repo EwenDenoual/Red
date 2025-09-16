@@ -8,6 +8,8 @@ func TestChoice() {
 	for j := 0; j < 1; j++ {
 		fmt.Scanln(&i)
 		switch i {
+		case 0:
+			return
 		case 1:
 			println("la ville")
 		case 2:
