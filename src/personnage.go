@@ -29,7 +29,7 @@ func InitCharacter() Character {
 func IsDead(player1 Character) bool {
 	var i int
 	if player1.pv == 0 {
-		Printfct("Vous etes mort dommage !!! ", 30, 0)
+		Printfct("Vous etes mort dommage !!!  :)", 30, 0)
 		fmt.Scanln(&i)
 		player1 = InitCharacter()
 		return true
