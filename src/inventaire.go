@@ -7,6 +7,7 @@ import (
 
 type Inventory struct {
 	potion int
+	potion_poison int
 	piece_or int
 	
 	Plume_de_Corbeau int
@@ -17,9 +18,6 @@ type Inventory struct {
 	Chapeau_de_l_aventurier int
 	Tunique_de_l_aventurier int
 	Bottes_de_l_aventurier int
-
-
-
 }
 
 func initInventory() Inventory {
