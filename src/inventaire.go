@@ -7,11 +7,39 @@ import (
 
 type Inventory struct {
 	potion int
+	piece_or int
+	
+	Plume_de_Corbeau int
+	Cuir_de_Sanglier int
+	Fourrure_de_loup int
+	Peau_de_Troll int
+
+	Chapeau_de_l_aventurier int
+	Tunique_de_l_aventurier int
+	Bottes_de_l_aventurier int
+
+
+
 }
 
 func initInventory() Inventory {
 	var inventaire_player1 Inventory
 	inventaire_player1.potion = 3
+
+	inventaire_player1.piece_or = 10
+
+	inventaire_player1.Plume_de_Corbeau = 2
+	inventaire_player1.Cuir_de_Sanglier = 2
+	inventaire_player1.Fourrure_de_loup = 2
+	inventaire_player1.Peau_de_Troll = 2
+
+	inventaire_player1.Chapeau_de_l_aventurier = 0
+	inventaire_player1.Tunique_de_l_aventurier = 0
+	inventaire_player1.Bottes_de_l_aventurier = 0
+
+
+
+
 	return inventaire_player1
 }
 
