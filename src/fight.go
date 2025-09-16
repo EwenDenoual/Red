@@ -50,12 +50,18 @@ func opponentTurn(player1 Character, mob opponent) (Character, opponent) {
 	return player1, mob
 }
 
+func attack(player1 Character, mob opponent) (Character, opponent) {
+	mob.pv -= 10
+	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou attack %v for %v damages", mob.name, 10)
+	return player1, mob
+}
+
 func fight(player1 Character) Character {
 	var i int
 	mob := initMob()
 
 	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n%v appears !\n", mob.name)
-	Printfct("1: Attack\n2: Talk\n3: Use Item\n0: Run Away", 1, 5)
+	Printfct("1: Attack\n2: Talk\n3: Use Potion\n0: Run Away", 1, 5)
 	for {
 		if IsDead(player1) {
 			return player1
@@ -70,14 +76,17 @@ func fight(player1 Character) Character {
 			time.Sleep(1 *time.Second)
 			return player1
 		case 1:
-			fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nToo bad you miss")
+			player1, mob = attack(player1, mob)
 		case 2:
+			fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt seems that the enemy does not want to talk.")
 		case 3:
+			player1 = TakePot(player1)
 		default:
 			println("invalid")
 		}
 		time.Sleep(1 *time.Second)
 		player1, mob = opponentTurn(player1, mob)
-		Printfct("1: Attack\n2: Talk\n3: Use Item\n0: Run Away", 1, 9)
+		time.Sleep(1 *time.Second)
+		Printfct("1: Attack\n2: Talk\n3: Use Item\n0: Run Away", 1, 8)
 	}
 }
