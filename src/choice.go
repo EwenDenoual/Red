@@ -27,7 +27,7 @@ func Menu(chara Character) Character {
 
 func Choice(chara Character) {
 	var i int
-	Printfct("Welcome to the game :\n\n1: Acces menu\n\n0: Exit", 15, 4)
+	Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n\n0: Exit", 15, 4)
 	for {
 		fmt.Scanln(&i)
 		switch i {
@@ -35,11 +35,13 @@ func Choice(chara Character) {
 			return
 		case 1:
 			chara = Menu(chara)
-			Printfct("Welcome to the game :\n\n1: Acces menu\n\n0: Exit", 15, 4)
-		// case 2:
-		// 	println("la foret")
-		// case 3:
-		// 	println("la tour")
+			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n\n0: Exit", 15, 4)
+		case 2:
+			chara = Menu_forgeron(chara)
+			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n\n0: Exit", 15, 4)
+		case 3:
+			chara = Menu_marchand(chara)
+			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n\n0: Exit", 15, 4)
 		default:
 			println("invalid")
 		}
