@@ -16,11 +16,12 @@ func initInventory() Inventory {
 }
 
 
-func AccessInventory(player1 Character) {
+func DisplayInventory(player1 Character) {
+	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInventaire : ")
 	fmt.Printf("\n Potion = %v\n", player1.inventaire.potion)
 }
 
-func TakePot(player1 Character) {
+func TakePot(player1 Character) Character{
 	
 	if player1.inventaire.potion > 0 {
 		player1.pv += 50
@@ -28,12 +29,12 @@ func TakePot(player1 Character) {
 		if player1.pv > player1.pv_max {
 			player1.pv = player1.pv_max
 		}
-		DisplayInfo(player1)
-		fmt.Printf("Vous disposez de %v pv sur %v pv\n", player1.pv, player1.pv_max)
+		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVous disposez de %v pv sur %v pv\n", player1.pv, player1.pv_max)
 		
 	} else {
-		fmt.Printf("Vous ne disposez pas de potion dans votre inventaire.\n")
+		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVous ne disposez pas de potion dans votre inventaire.\n")
 	}
+	return player1
 	
 }
 
