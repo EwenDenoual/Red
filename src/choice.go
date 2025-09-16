@@ -4,7 +4,7 @@ import "fmt"
 
 func Menu(chara Character) Character {
 	var i int
-	fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1: Character stats\n2: Inventory\n\n0: Back\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n			")
+	Printfct("1: Character stats\n2: Inventory\n\n0: Back", 15, 3)
 	for {
 		fmt.Scanln(&i)
 		switch i {
@@ -12,10 +12,10 @@ func Menu(chara Character) Character {
 			return chara
 		case 1:
 			DisplayInfo(chara)
-			fmt.Println("\n\n1: Character stats\n2: Inventory\n\n0: Back\n\n\n\n\n\n\n			")
+			Printfct("1: Character stats\n2: Inventory\n\n0: Back", 0, 9)
 		case 2:
-		 	DisplayInventory(chara)
-			fmt.Println("\n\n1: Character stats\n2: Inventory\n\n0: Back\n\n\n\n\n\n\n\n\n\n\n			")
+			DisplayInventory(chara)
+			Printfct("1: Character stats\n2: Inventory\n\n0: Back", 2, 7)
 		// case 3:
 		// 	println("la tour")
 		default:
@@ -26,7 +26,7 @@ func Menu(chara Character) Character {
 
 func Choice(chara Character) {
 	var i int
-	fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to the game :\n\n1: Acces menu\n\n0: Exit\n\n\n\n\n\n\n\n\n\n\n\n\n\n			")
+	Printfct("Welcome to the game :\n\n1: Acces menu\n\n0: Exit", 15, 4)
 	for {
 		fmt.Scanln(&i)
 		switch i {
@@ -34,7 +34,7 @@ func Choice(chara Character) {
 			return
 		case 1:
 			chara = Menu(chara)
-			fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to the game :\n\n1: Acces menu\n\n0: Exit\n\n\n\n\n\n\n\n\n\n\n\n\n\n			")
+			Printfct("Welcome to the game :\n\n1: Acces menu\n\n0: Exit", 15, 4)
 		// case 2:
 		// 	println("la foret")
 		// case 3:
