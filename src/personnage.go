@@ -75,12 +75,10 @@ func CharacterCreation(player1 Character) Character {
 	println("Entrer la classe de votre personnage : ")
 
 	var i int
-	Printfct("1: Classe Humain\n2: Classe Elfes\n3: Classe Nains\n\n0: Exit", 3,9)
+	Printfct("1: Classe Humain\n2: Classe Elfes\n3: Classe Nains", 3,9)
 	for {
 		fmt.Scanln(&i)
 		switch i {
-		case 0: 
-			return player1
 		case 1 :
 			player1.classe = "Humain"
 			player1.pv_max = 100

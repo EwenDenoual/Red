@@ -15,9 +15,7 @@ func config() {
 	fmt.Print("\n\n\n\n\n\n\n\n\n")
 	var entrer int
 	fmt.Scanln(&entrer)
-	if entrer == 0 {
-		chargement()
-	}
+	chargement()
 }
 
 func chargement() {
