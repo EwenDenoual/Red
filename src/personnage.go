@@ -8,6 +8,7 @@ type Character struct {
 	nom        string
 	classe     string
 	niveau     int
+	exp        int
 	pv_max     int
 	pv         int
 	st         stat
@@ -20,6 +21,7 @@ func InitCharacter() Character {
 	player1.nom = "Rudolf"
 	player1.classe = "Elfe"
 	player1.niveau = 1
+	player1.exp = 0
 	player1.pv_max = 100
 	player1.pv = 40
 	player1.st = initStat()

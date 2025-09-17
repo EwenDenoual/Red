@@ -16,6 +16,7 @@ type opponent struct {
 	pv     int
 	dmg    int
 	reward int
+	exp    int
 	crit   int
 }
 
@@ -50,24 +51,28 @@ func initMob() opponent {
 		mob.dmg = 5
 		mob.pv = 30
 		mob.reward = 10
+		mob.exp = 10
 	}
 	if ran >= 50 && ran < 80 {
 		mob.name = "The Orque"
 		mob.dmg = 10
 		mob.pv = 40
 		mob.reward = 20
+		mob.exp = 20
 	}
 	if ran >= 80 && ran < 99 {
 		mob.name = "Krenko, The Goblin King"
 		mob.dmg = 20
 		mob.pv = 100
 		mob.reward = 100
+		mob.exp = 50
 	}
 	if ran == 99 {
 		mob.name = "Ureni, The Divin Dragon"
 		mob.dmg = 99
 		mob.pv = 10000
 		mob.reward = 99999999999
+		mob.exp = 100
 	}
 	mob.crit = 0
 	return mob
@@ -78,6 +83,10 @@ func winfight(player Character, mob opponent) Character {
 	tune := (mob.reward * player.st.luck) / 100
 	player.inventaire.piece_or += tune
 	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWell done, You defeat %v !\nYou gain %v gold", mob.name, tune)
+	player.exp += mob.exp
+	if player.exp >= 100 {
+		player = lvlup(player)
+	}
 	Printfct("Wanna continue ?", 2, 3)
 	fmt.Scanln(&i)
 	return player
