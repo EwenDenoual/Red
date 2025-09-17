@@ -87,7 +87,7 @@ func winfight(player Character, mob opponent) Character {
 	if player.exp >= 100 {
 		player = lvlup(player)
 	}
-	Printfct("Wanna continue ?", 2, 3)
+	Printfct("Wanna continue ?", 2, 6)
 	fmt.Scanln(&i)
 	return player
 }
@@ -133,9 +133,6 @@ func fight(player1 Character) Character {
 		if IsDead(player1) {
 			return InitCharacter()
 		}
-		if mob.pv <= 0 {
-			return winfight(player1, mob)
-		}
 		fmt.Scanln(&i)
 		switch i {
 		case 0:
@@ -148,8 +145,14 @@ func fight(player1 Character) Character {
 			fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt seems that the enemy does not want to talk.")
 		case 3:
 			player1 = TakePot(player1)
+		case 12:
+			fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCHEAT CODE POWER !")
+			mob.pv = 0
 		default:
 			println("invalid")
+		}
+		if mob.pv <= 0 {
+			return winfight(player1, mob)
 		}
 		time.Sleep(1 * time.Second)
 		player1, mob = opponentTurn(player1, mob)
