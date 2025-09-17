@@ -43,7 +43,7 @@ func chargement() {
 	for i := 0; i < 7; i++ {
 		charge += "="
 		fmt.Print(charge)
-		time.Sleep(1 *time.Second)
+		time.Sleep(250 *time.Millisecond)
 	}
 	fmt.Print("\n\n")
 	fmt.Print("----- VOUS ENTREZ DANS LE JEU -----\n")
