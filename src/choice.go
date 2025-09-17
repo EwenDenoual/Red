@@ -42,12 +42,22 @@ func Choice(chara Character) {
 			chara = Menu(chara)
 			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
 		case 2:
-			chara = Menu_forgeron(chara)
-			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
-		case 3:
-			chara = Menu_marchand(chara)
-			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
-    	case 4:
+			if chara.nom != "" {
+				chara = Menu_forgeron(chara)
+				Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
+			} else {
+				fmt.Printf("Veillez créer un personnage")
+				Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 2, 7)
+			}
+			case 3:
+			if chara.nom != "" {
+				chara = Menu_marchand(chara)
+				Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
+			} else {
+				fmt.Printf("Veillez créer un personnage")
+				Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 2, 7)
+			}
+			case 4:
 			if chara.nom != "" {
 		 		chara = fight(chara)
 				Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
