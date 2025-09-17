@@ -48,7 +48,7 @@ func chargement() {
 	fmt.Print("\n\n")
 	fmt.Print("----- VOUS ENTREZ DANS LE JEU -----\n")
 	fmt.Print("\n\n")
-	time.Sleep(3 *time.Second)
+	time.Sleep(2 *time.Second)
 }
 
 func main() {
