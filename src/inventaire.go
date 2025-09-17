@@ -66,9 +66,7 @@ func (inv *Inventory) TotalItems() int {
 
 	fmt.Printf("✅ %v %s ajouté(s).\n", amount, item)
 	return true
-
-
-
+}
 
 func initInventory() Inventory {
 	var inventaire_player1 Inventory
