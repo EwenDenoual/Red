@@ -4,21 +4,24 @@ import "fmt"
 
 func Menu(chara Character) Character {
 	var i int
-	Printfct("1: Character stats\n2: Inventory\n3: Use Potion\n\n0: Back", 15, 4)
+	Printfct("1: Créer votre personnage\n2: Character stats\n3: Inventory\n4: Use Potion\n\n0: Back", 12, 3)
 	for {
 		fmt.Scanln(&i)
 		switch i {
 		case 0:
 			return chara
-		case 1:
-			DisplayInfo(chara)
-			Printfct("1: Character stats\n2: Inventory\n3: Use Potion\n\n0: Back", 0, 10)
+		case 1 : 
+			chara = CharacterCreation(chara)
+			Printfct("1: Créer votre personnage\n2: Character stats\n3: Inventory\n4: Use Potion\n\n0: Back", 0, 3)
 		case 2:
-			DisplayInventory(chara)
-			Printfct("1: Character stats\n2: Inventory\n3: Use Potion\n\n0: Back", 2, 8)
+			DisplayInfo(chara)
+			Printfct("1: Créer votre personnage\n2: Character stats\n3: Inventory\n4: Use Potion\n\n0: Back", 0, 11)
 		case 3:
+			DisplayInventory(chara)
+			Printfct("1: Créer votre personnage\n2: Character stats\n3: Inventory\n4: Use Potion\n\n0: Back", 0, 16)
+		case 4:
 		 	chara = TakePot(chara)
-			Printfct("1: Character stats\n2: Inventory\n3: Use Potion\n\n0: Back", 2, 7)
+			Printfct("1: Créer votre personnage\n2: Character stats\n3: Inventory\n4: Use Potion\n\n0: Back", 0, 10)
 		default:
 			println("invalid")
 		}
