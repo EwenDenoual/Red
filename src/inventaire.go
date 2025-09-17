@@ -18,6 +18,8 @@ type Inventory struct {
 	Chapeau_de_l_aventurier int
 	Tunique_de_l_aventurier int
 	Bottes_de_l_aventurier  int
+
+	size_max int
 }
 
 func TotalItems(inv Inventory) bool {
@@ -30,7 +32,7 @@ func TotalItems(inv Inventory) bool {
 		inv.Chapeau_de_l_aventurier +
 		inv.Tunique_de_l_aventurier +
 		inv.Bottes_de_l_aventurier
-	return tot >= 10
+	return tot >= inv.size_max
 }
 
 // func (inv *Inventory) AddItem(item string, amount int) bool {
@@ -83,6 +85,8 @@ func initInventory() Inventory {
 	inventaire_player1.Tunique_de_l_aventurier = 0
 	inventaire_player1.Bottes_de_l_aventurier = 0
 
+	inventaire_player1.size_max = 10
+
 	return inventaire_player1
 }
 
@@ -125,19 +129,8 @@ func PoisonPot(player1 Character) Character {
 	return player1
 }
 
-// Fonction d'agrandissment de l'inventaire a ajouter quand la fonction "Limite d’inventaire" (Tache 12)
+func UpgradeInventorySlot(player1 Character) Character {
+	player1.inventaire.size_max = 30
 
-// func UpgradeInventorySlot(player1 Character) Character {
-// 	var Inventory_max_use int = 3
-
-// 	if player1.inventaire.piece_or > 30 {
-// 		if Inventory_max_use > 0 {
-// 			println("Vous venez d'agrandire votre inventaire de + 10 items")
-// 			Inventory_max += 10
-// 			Inventory_max_use -= 1
-// 			player1.inventaire.piece_or -= 30
-
-// 		}
-// 	}
-// 	return player1
-// }
+	return player1
+}
