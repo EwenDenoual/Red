@@ -1,6 +1,8 @@
 package red
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func Menu(chara Character) Character {
 	var i int
@@ -46,8 +48,14 @@ func Choice(chara Character) {
 			chara = Menu_marchand(chara)
 			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
     	case 4:
-		 	chara = fight(chara)
-			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
+			if chara.nom != "" {
+		 		chara = fight(chara)
+				Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
+			} else {
+				fmt.Printf("Veillez créer un personnage")
+				Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 2, 7)
+
+			}
 		default:
 			println("invalid")
 		}
