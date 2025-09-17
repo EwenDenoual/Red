@@ -20,6 +20,7 @@ type Inventory struct {
 	Bottes_de_l_aventurier int
 }
 
+
 func initInventory() Inventory {
 	var inventaire_player1 Inventory
 	inventaire_player1.potion = 3

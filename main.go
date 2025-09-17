@@ -54,7 +54,6 @@ func chargement() {
 func main() {
 	config()
 	Character := red.InitCharacter()
-
 	red.Choice(Character)
 	for range 20 {
 		fmt.Printf("\n")
