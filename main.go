@@ -11,7 +11,7 @@ func config() {
 	fmt.Printf("------------------------------------------------------------------------------------------------")
 	fmt.Print("\n\n\n\n\n\n\n\n\n\n\n")
 	fmt.Print("POUR CONFIGURER VOTRE TERMINAL : AJUSTEZ SA TAILLE POUR QU’ELLE SOIT JUSTE AU-DESSUS DE LA BARRE")
-	fmt.Print("\n--------------------------- UNE FOIS CONFIGURE CLIQUER 0 --------------------------------------")
+	fmt.Print("\n------------------------ UNE FOIS CONFIGURE CLIQUER SUR ENTREE --------------------------------")
 	fmt.Print("\n\n\n\n\n\n\n\n\n")
 	var entrer int
 	fmt.Scanln(&entrer)
