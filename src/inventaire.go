@@ -20,6 +20,7 @@ type Inventory struct {
 	Bottes_de_l_aventurier int
 }
 
+
 func initInventory() Inventory {
 	var inventaire_player1 Inventory
 	inventaire_player1.potion = 3
@@ -44,7 +45,7 @@ func initInventory() Inventory {
 
 func DisplayInventory(player1 Character) {
 	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInventaire : ")
-	fmt.Printf("\n Potion = %v\n", player1.inventaire.potion)
+	fmt.Printf("\n---------------------------------------------------------------\nPotion = %v\nPiece Or = %v\nPlume De Corbeau = %v\nCuir De Sanglier = %v\nFourrure De Loup = %v\nPeau De Troll = %v\nChapeau De L'Aventurier = %v\nTunique De L'aventurier = %v\nBottes De L'Aventurier = %v\n---------------------------------------------------------------\n\n", player1.inventaire.potion, player1.inventaire.piece_or, player1.inventaire.Plume_de_Corbeau,player1.inventaire.Cuir_de_Sanglier, player1.inventaire.Fourrure_de_loup, player1.inventaire.Peau_de_Troll, player1.inventaire.Chapeau_de_l_aventurier, player1.inventaire.Tunique_de_l_aventurier, player1.inventaire.Bottes_de_l_aventurier)
 }
 
 func TakePot(player1 Character) Character{
@@ -80,3 +81,20 @@ func PoisonPot(player1 Character) Character{
 	fmt.Printf("La potion a fait effet, voici vos PV : %v sur %v \n", player1.pv, player1.pv_max)
 	return player1
 }
+
+// Fonction d'agrandissment de l'inventaire a ajouter quand la fonction "Limite d’inventaire" (Tache 12)
+
+// func UpgradeInventorySlot(player1 Character) Character {
+// 	var Inventory_max_use int = 3
+
+// 	if player1.inventaire.piece_or > 30 {
+// 		if Inventory_max_use > 0 {
+// 			println("Vous venez d'agrandire votre inventaire de + 10 items")
+// 			Inventory_max += 10
+// 			Inventory_max_use -= 1
+// 			player1.inventaire.piece_or -= 30
+
+// 		}
+// 	}
+// 	return player1
+// }
