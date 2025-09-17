@@ -16,6 +16,7 @@ type opponent struct {
 	pv     int
 	dmg    int
 	reward int
+	crit   int
 }
 
 type stat struct {
@@ -68,6 +69,7 @@ func initMob() opponent {
 		mob.pv = 10000
 		mob.reward = 99999999999
 	}
+	mob.crit = 0
 	return mob
 }
 
@@ -83,11 +85,20 @@ func winfight(player Character, mob opponent) Character {
 
 func opponentTurn(player1 Character, mob opponent) (Character, opponent) {
 	dmg := (mob.dmg * player1.st.taken_emp) / 100
+	mob.crit++
+	if mob.crit == 3 {
+		dmg *= 2
+		mob.crit = 0
+	}
 	player1.pv -= dmg
 	if player1.pv < 0 {
 		player1.pv = 0
 	}
-	fmt.Printf("\nAH ! %v attack and you take %v damages\n", mob.name, dmg)
+	if mob.crit == 0 {
+		fmt.Printf("\nAH ! %v attack and you take %v damages. It a critical hit !\n", mob.name, dmg)
+	} else {
+		fmt.Printf("\n%v attack and you take %v damages\n", mob.name, dmg)
+	}
 	time.Sleep(1 * time.Second)
 	fmt.Printf("\nYou Have %v hp left, %v have %v left\n", player1.pv, mob.name, mob.pv)
 	return player1, mob
@@ -108,7 +119,7 @@ func fight(player1 Character) Character {
 	mob := initMob()
 
 	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n%v appears !\n", mob.name)
-	Printfct("1: Attack\n2: Talk\n3: Use Potion\n0: Run Away", 1, 5)
+	Printfct("1: Attack\n2: Talk\n3: Use Potion\n0: Run Away", 1, 3)
 	for {
 		if IsDead(player1) {
 			return InitCharacter()
