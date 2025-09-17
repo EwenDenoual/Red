@@ -83,14 +83,14 @@ func CharacterCreation(player1 Character) Character {
 			player1.pv_max = 100
 			player1.pv = player1.pv_max/2
 			Printfct("Classe Humain chose", 30,1)
-			time.Sleep(3 *time.Second)
+			time.Sleep(2 *time.Second)
 			return player1
 		case 2 : 
 			player1.classe = "Elfes"
 			player1.pv_max = 80
 			player1.pv = player1.pv_max/2
 			Printfct("Classe Elfes chose", 30,1)
-			time.Sleep(3 *time.Second)
+			time.Sleep(2 *time.Second)
 			return player1
 		case 3 :
 			player1.classe = "Nains"
