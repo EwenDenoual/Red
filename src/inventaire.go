@@ -64,7 +64,7 @@ func TakePot(player1 Character) Character{
 	
 }
 
-func PoisonPot(player1 Character) {
+func PoisonPot(player1 Character) Character{
 	player1.pv -= 10
 	fmt.Printf("Vous venez de recevoir une potion de poison, voici vos PV : %v sur %v \n", player1.pv, player1.pv_max)
 
@@ -78,6 +78,7 @@ func PoisonPot(player1 Character) {
 
 	time.Sleep(1 *time.Second)
 	fmt.Printf("La potion a fait effet, voici vos PV : %v sur %v \n", player1.pv, player1.pv_max)
+	return player1
 }
 
 // Fonction d'agrandissment de l'inventaire a ajouter quand la fonction "Limite d’inventaire" (Tache 12)
