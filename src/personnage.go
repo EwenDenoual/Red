@@ -14,6 +14,22 @@ type Character struct {
 	st         stat
 	inventaire Inventory
 	spell      spellbook
+	equipment Equipment
+}
+
+
+type Equipment struct {
+	equipement_tete int
+	equipement_torse int
+	equipement_pieds int
+}
+
+func InitEquipment() Equipment {
+	var equipement_player1 Equipment
+	equipement_player1.equipement_tete = 0
+	equipement_player1.equipement_torse = 0
+	equipement_player1.equipement_pieds = 0
+	return equipement_player1
 }
 
 func InitCharacter() Character {
