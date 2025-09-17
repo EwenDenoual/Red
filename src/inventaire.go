@@ -79,3 +79,20 @@ func PoisonPot(player1 Character) {
 	time.Sleep(1 *time.Second)
 	fmt.Printf("La potion a fait effet, voici vos PV : %v sur %v \n", player1.pv, player1.pv_max)
 }
+
+// Fonction d'agrandissment de l'inventaire a ajouter quand la fonction "Limite d’inventaire" (Tache 12)
+
+// func UpgradeInventorySlot(player1 Character) Character {
+// 	var Inventory_max_use int = 3
+
+// 	if player1.inventaire.piece_or > 30 {
+// 		if Inventory_max_use > 0 {
+// 			println("Vous venez d'agrandire votre inventaire de + 10 items")
+// 			Inventory_max += 10
+// 			Inventory_max_use -= 1
+// 			player1.inventaire.piece_or -= 30
+
+// 		}
+// 	}
+// 	return player1
+// }
