@@ -9,6 +9,7 @@ type Character struct {
 	nom        string
 	classe     string
 	niveau     int
+	exp        int
 	pv_max     int
 	pv         int
 	st         stat
@@ -37,6 +38,7 @@ func InitCharacter() Character {
 	// player1.nom = " "
 	player1.classe = ""
 	player1.niveau = 1
+	player1.exp = 0
 	player1.pv_max = 100
 	player1.pv = 40
 	player1.st = initStat()
@@ -56,8 +58,9 @@ func IsDead(player1 Character) bool {
 }
 
 func DisplayInfo(player1 Character) {
+
 	if player1.nom != "" {
-		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n---------------------------------------------------------------\n Nom : %v\n Classe : %v\n Niveau : %v\n Pv_max : %v\n Pv : %v\n---------------------------------------------------------------\n\n", player1.nom, player1.classe, player1.niveau, player1.pv_max, player1.pv)
+		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n---------------------------------------------------------------\n Nom : %v\n Classe : %v\n Niveau : %v\n Exp : %v\n Pv_max : %v\n Pv : %v\n---------------------------------------------------------------\n\n", player1.nom, player1.classe, player1.niveau, player1.exp, player1.pv_max, player1.pv)
 	} else {
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\nVeuillez créer votre personnage\n\n")
 	}
