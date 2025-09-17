@@ -2,6 +2,7 @@ package red
 
 import (
 	"fmt"
+	"time"
 )
 
 type Character struct {
@@ -15,8 +16,8 @@ type Character struct {
 
 func InitCharacter() Character {
 	var player1 Character
-	player1.nom = "Rudolf"
-	player1.classe = "Elfe"
+	// player1.nom = " "
+	player1.classe = ""
 	player1.niveau = 1
 	player1.pv_max = 100
 	player1.pv = 40
@@ -27,11 +28,52 @@ func InitCharacter() Character {
 func IsDead(player1 Character) {
 	if player1.pv == 0 {
 		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVous etes mort dommage !!! \n")
-		player1 = InitCharacter()
+		//player1 = InitCharacter()
 		DisplayInfo(player1)
 	}
 }
 
 func DisplayInfo(player1 Character) {
-	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Nom : %v\n Classe : %v\n Niveau : %v\n Pv_max : %v\n Pv : %v\n\n", player1.nom, player1.classe, player1.niveau, player1.pv_max, player1.pv)
+	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n---------------------------------------------------------------\n Nom : %v\n Classe : %v\n Niveau : %v\n Pv_max : %v\n Pv : %v\n---------------------------------------------------------------\n\n", player1.nom, player1.classe, player1.niveau, player1.pv_max, player1.pv)
+}
+
+
+func CharacterCreation(player1 Character) Character {
+
+	fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer / Modifier votre personnage : ")
+	fmt.Println("Entrer le nom de votre personnage : ")
+	fmt.Scan(&player1.nom)
+
+	println("Entrer la classe de votre personnage : ")
+
+	var i int
+	Printfct("1: Classe Humain\n2: Classe Elfes\n3: Classe Nains\n\n0: Exit", 3,9)
+	for {
+		fmt.Scanln(&i)
+		switch i {
+		case 0: 
+			return player1
+		case 1 :
+			player1.classe = "Humain"
+			player1.pv_max = 100
+			player1.pv = player1.pv_max/2
+			Printfct("Classe Humain chose", 30,1)
+			time.Sleep(3 *time.Second)
+			return player1
+		case 2 : 
+			player1.classe = "Elfes"
+			player1.pv_max = 80
+			player1.pv = player1.pv_max/2
+			Printfct("Classe Elfes chose", 30,1)
+			time.Sleep(3 *time.Second)
+			return player1
+		case 3 :
+			player1.classe = "Nains"
+			player1.pv_max = 120
+			player1.pv = player1.pv_max/2
+			Printfct("Classe Nains chose", 30,1)
+			time.Sleep(2 *time.Second)
+			return player1
+		}
+	}
 }
