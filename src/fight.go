@@ -2,19 +2,37 @@ package red
 
 import (
 	"fmt"
+	"math/rand"
 	"time"
 )
 
 type spellbook struct {
-	poing int
+	poing     int
 	dmg_poing int
 }
 
 type opponent struct {
-	name string
-	pv int
-	dmg int
+	name   string
+	pv     int
+	dmg    int
 	reward int
+	crit   int
+}
+
+type stat struct {
+	dmg       int
+	dmg_emp   int
+	taken_emp int
+	luck      int
+}
+
+func initStat() stat {
+	var st stat
+	st.dmg = 10
+	st.dmg_emp = 100
+	st.taken_emp = 100
+	st.luck = 100
+	return st
 }
 
 func initSpellbook() spellbook {
@@ -25,34 +43,74 @@ func initSpellbook() spellbook {
 }
 
 func initMob() opponent {
+	ran := rand.Intn(100)
 	var mob opponent
-	mob.name = "The Goblin"
-	mob.dmg = 5
-	mob.pv = 30
-	mob.reward = 10
+	if ran < 50 {
+		mob.name = "The Goblin"
+		mob.dmg = 5
+		mob.pv = 30
+		mob.reward = 10
+	}
+	if ran >= 50 && ran < 80 {
+		mob.name = "The Orque"
+		mob.dmg = 10
+		mob.pv = 40
+		mob.reward = 20
+	}
+	if ran >= 80 && ran < 99 {
+		mob.name = "Krenko, The Goblin King"
+		mob.dmg = 20
+		mob.pv = 100
+		mob.reward = 100
+	}
+	if ran == 99 {
+		mob.name = "Ureni, The Divin Dragon"
+		mob.dmg = 99
+		mob.pv = 10000
+		mob.reward = 99999999999
+	}
+	mob.crit = 0
 	return mob
 }
 
 func winfight(player Character, mob opponent) Character {
 	var i int
-	player.inventaire.piece_or += mob.reward
-	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWell done, You defeat %v !\nYou gain %v gold", mob.name, mob.reward)
+	tune := (mob.reward * player.st.luck) / 100
+	player.inventaire.piece_or += tune
+	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWell done, You defeat %v !\nYou gain %v gold", mob.name, tune)
 	Printfct("Wanna continue ?", 2, 3)
 	fmt.Scanln(&i)
 	return player
 }
 
 func opponentTurn(player1 Character, mob opponent) (Character, opponent) {
-	player1.pv -= mob.dmg
-	fmt.Printf("\nAH ! %v attack and you take %v damages\n", mob.name, mob.dmg)
-	time.Sleep(1 *time.Second)
+	dmg := (mob.dmg * player1.st.taken_emp) / 100
+	mob.crit++
+	if mob.crit == 3 {
+		dmg *= 2
+		mob.crit = 0
+	}
+	player1.pv -= dmg
+	if player1.pv < 0 {
+		player1.pv = 0
+	}
+	if mob.crit == 0 {
+		fmt.Printf("\nAH ! %v attack and you take %v damages. It a critical hit !\n", mob.name, dmg)
+	} else {
+		fmt.Printf("\n%v attack and you take %v damages\n", mob.name, dmg)
+	}
+	time.Sleep(1 * time.Second)
 	fmt.Printf("\nYou Have %v hp left, %v have %v left\n", player1.pv, mob.name, mob.pv)
 	return player1, mob
 }
 
 func attack(player1 Character, mob opponent) (Character, opponent) {
-	mob.pv -= 10
-	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou attack %v for %v damages", mob.name, 10)
+	dmg := (player1.st.dmg * player1.st.dmg_emp) / 100
+	mob.pv -= dmg
+	if mob.pv < 0 {
+		mob.pv = 0
+	}
+	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou attack %v for %v damages", mob.name, dmg)
 	return player1, mob
 }
 
@@ -61,10 +119,10 @@ func fight(player1 Character) Character {
 	mob := initMob()
 
 	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n%v appears !\n", mob.name)
-	Printfct("1: Attack\n2: Talk\n3: Use Potion\n0: Run Away", 1, 5)
+	Printfct("1: Attack\n2: Talk\n3: Use Potion\n0: Run Away", 1, 3)
 	for {
 		if IsDead(player1) {
-			return player1
+			return InitCharacter()
 		}
 		if mob.pv <= 0 {
 			return winfight(player1, mob)
@@ -73,7 +131,7 @@ func fight(player1 Character) Character {
 		switch i {
 		case 0:
 			Printfct("You run away", 30, 0)
-			time.Sleep(1 *time.Second)
+			time.Sleep(1 * time.Second)
 			return player1
 		case 1:
 			player1, mob = attack(player1, mob)
@@ -84,9 +142,9 @@ func fight(player1 Character) Character {
 		default:
 			println("invalid")
 		}
-		time.Sleep(1 *time.Second)
+		time.Sleep(1 * time.Second)
 		player1, mob = opponentTurn(player1, mob)
-		time.Sleep(1 *time.Second)
+		time.Sleep(1 * time.Second)
 		Printfct("1: Attack\n2: Talk\n3: Use Item\n0: Run Away", 1, 8)
 	}
 }

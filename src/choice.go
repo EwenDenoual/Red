@@ -42,7 +42,7 @@ func Choice(chara Character) {
 		case 3:
 			chara = Menu_marchand(chara)
 			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
-    case 4:
+    	case 4:
 		 	chara = fight(chara)
 			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
 		default:

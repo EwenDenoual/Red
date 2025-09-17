@@ -5,13 +5,14 @@ import (
 )
 
 type Character struct {
-	nom    string
-	classe string
-	niveau int
-	pv_max int
-	pv     int
+	nom        string
+	classe     string
+	niveau     int
+	pv_max     int
+	pv         int
+	st         stat
 	inventaire Inventory
-	spell spellbook
+	spell      spellbook
 }
 
 func InitCharacter() Character {
@@ -21,6 +22,7 @@ func InitCharacter() Character {
 	player1.niveau = 1
 	player1.pv_max = 100
 	player1.pv = 40
+	player1.st = initStat()
 	player1.inventaire = initInventory()
 	player1.spell = initSpellbook()
 	return player1
@@ -31,7 +33,6 @@ func IsDead(player1 Character) bool {
 	if player1.pv == 0 {
 		Printfct("Vous etes mort dommage !!!  :)", 30, 0)
 		fmt.Scanln(&i)
-		player1 = InitCharacter()
 		return true
 	}
 	return false
