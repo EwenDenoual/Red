@@ -20,6 +20,56 @@ type Inventory struct {
 	Bottes_de_l_aventurier int
 }
 
+func (inv *Inventory) TotalItems() int {
+	return inv.potion +
+		inv.potion_poison +
+		inv.piece_or +
+		inv.Plume_de_Corbeau +
+		inv.Cuir_de_Sanglier +
+		inv.Fourrure_de_loup +
+		inv.Peau_de_Troll +
+		inv.Chapeau_de_l_aventurier +
+		inv.Tunique_de_l_aventurier +
+		inv.Bottes_de_l_aventurier
+	}
+
+	func (inv *Inventory) AddItem(item string, amount int) bool {
+	if inv.TotalItems()+amount > 10 {
+		fmt.Println("Ton inventaire est plein ! Impossible d’ajouter plus d’items.")
+		return false
+	}
+	switch item {
+	case "potion":
+		inv.potion += amount
+	case "potion_poison":
+		inv.potion_poison += amount
+	case "piece_or":
+		inv.piece_or += amount
+	case "Plume_de_Corbeau":
+		inv.Plume_de_Corbeau += amount
+	case "Cuir_de_Sanglier":
+		inv.Cuir_de_Sanglier += amount
+	case "Fourrure_de_loup":
+		inv.Fourrure_de_loup += amount
+	case "Peau_de_Troll":
+		inv.Peau_de_Troll += amount
+	case "Chapeau_de_l_aventurier":
+		inv.Chapeau_de_l_aventurier += amount
+	case "Tunique_de_l_aventurier":
+		inv.Tunique_de_l_aventurier += amount
+	case "Bottes_de_l_aventurier":
+		inv.Bottes_de_l_aventurier += amount
+	default:
+		fmt.Println("❌ Item inconnu :", item)
+		return false
+	}
+
+	fmt.Printf("✅ %v %s ajouté(s).\n", amount, item)
+	return true
+
+
+
+
 func initInventory() Inventory {
 	var inventaire_player1 Inventory
 	inventaire_player1.potion = 3
