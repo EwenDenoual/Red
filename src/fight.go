@@ -104,7 +104,7 @@ func opponentTurn(player1 Character, mob opponent) (Character, opponent) {
 		player1.pv = 0
 	}
 	if mob.crit == 0 {
-		fmt.Printf("\nAH ! %v attack and you take %v damages. It a critical hit !\n", mob.name, dmg)
+		fmt.Printf("\nAH ! %v attack and you take %v damages. It's a critical hit !\n", mob.name, dmg)
 	} else {
 		fmt.Printf("\n%v attack and you take %v damages\n", mob.name, dmg)
 	}
@@ -115,11 +115,20 @@ func opponentTurn(player1 Character, mob opponent) (Character, opponent) {
 
 func attack(player1 Character, mob opponent) (Character, opponent) {
 	dmg := (player1.st.dmg * player1.st.dmg_emp) / 100
+	crit := rand.Intn(100) + 100
+	if crit < player1.st.luck {
+		crit = 1
+		dmg *= 2
+	}
 	mob.pv -= dmg
 	if mob.pv < 0 {
 		mob.pv = 0
 	}
-	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou attack %v for %v damages", mob.name, dmg)
+	if crit != 1 {
+		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou attack %v for %v damages", mob.name, dmg)
+	} else {
+		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAH ! You attack %v for %v damages. It's a critical hit !", mob.name, dmg)
+	}
 	return player1, mob
 }
 
