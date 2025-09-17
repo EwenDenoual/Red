@@ -7,7 +7,7 @@ import (
 
 func Menu_marchand(player1 Character) Character {
 	var i int
-	Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie\n2: Potion de poison\n\n0: Exit", 30, 5)
+	Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie\n2: Potion de poison\n3: Agrandir l'inventaire (30 Pieces d'Or)\n\n0: Exit", 30, 5)
 	for {
 		fmt.Scanln(&i)
 		switch i {
@@ -15,13 +15,13 @@ func Menu_marchand(player1 Character) Character {
 			return player1
 		case 1:
 			player1 = Acheter_potion_vie(player1)
-			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie\n2: Potion de poison\n\n0: Exit", 1, 7)
+			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie\n2: Potion de poison\n3: Agrandir l'inventaire (30 Pieces d'Or)\n\n0: Exit", 1, 7)
 		case 2:
-			player1 = Acheter_potion_poison(player1)
-			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie\n2: Potion de poison\n\n0: Exit", 1, 7)
-		//case 3:
-		//fonction(player1)
-		//Printfct("", 1, 7)
+      player1 = Acheter_potion_poison(player1)
+			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie\n2: Potion de poison\n3: Agrandir l'inventaire (30 Pieces d'Or)\n\n0: Exit", 1, 7)
+		// case 3:
+		// 	player1 = UpgradeInventorySlot(player1)
+		// 	Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie\n2: Potion de poison\n3: Agrandir l'inventaire (30 Pieces d'Or)\n\n0: Exit", 1, 7)
 		default:
 			println("invalid")
 		}
