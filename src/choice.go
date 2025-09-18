@@ -30,14 +30,14 @@ func Menu(chara Character) Character {
 	}
 }
 
-func Choice(chara Character) {
+func Choice(chara Character) Character {
 	var i int
   Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)
 	for {
 		fmt.Scanln(&i)
 		switch i {
 		case 0:
-			return
+			return chara
 		case 1:
 			chara = Menu(chara)
 			Printfct("Welcome to the game :\n\n1: Acces menu\n2: Acces Forgeron\n3: Acces Marchand\n4: find an opponent\n\n0: Exit", 15, 5)

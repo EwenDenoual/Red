@@ -140,7 +140,7 @@ func fight(player1 Character) Character {
 	Printfct("1: Attack\n2: Talk\n3: Use Potion\n0: Run Away", 1, 3)
 	for {
 		if IsDead(player1) {
-			return InitCharacter()
+			return *InitCharacter()
 		}
 		fmt.Scanln(&i)
 		switch i {
