@@ -30,4 +30,5 @@ Dans **GREEN**, vous incarnez un petit personnage que vous aurez vous-même cré
 
 ```bash
 git clone https://github.com/EwenDenoual/Red.git
+git pull
 go run main.go
