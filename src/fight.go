@@ -140,7 +140,7 @@ func fight(player1 Character) Character {
 	Printfct("1: Attaquer\n2: Parler\n3: Utiliser une potion\n0: Fuir", 1, 3)
 	for {
 		if IsDead(player1) {
-			return InitCharacter()
+			return *InitCharacter()
 		}
 		fmt.Scanln(&i)
 		switch i {
@@ -160,10 +160,10 @@ func fight(player1 Character) Character {
 		default:
 			println("invalid")
 		}
+		time.Sleep(1 * time.Second)
 		if mob.pv <= 0 {
 			return winfight(player1, mob)
 		}
-		time.Sleep(1 * time.Second)
 		player1, mob = opponentTurn(player1, mob)
 		time.Sleep(1 * time.Second)
 		Printfct("1: Attaquer\n2: Parler\n3: Utiliser un objet\n0: Fuir", 1, 8)

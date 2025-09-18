@@ -33,7 +33,7 @@ func InitEquipment() Equipment {
 	return equipement_player1
 }
 
-func InitCharacter() Character {
+func InitCharacter() *Character {
 	var player1 Character
 	// player1.nom = " "
 	player1.classe = ""
@@ -44,7 +44,7 @@ func InitCharacter() Character {
 	player1.st = initStat()
 	player1.inventaire = initInventory()
 	player1.spell = initSpellbook()
-	return player1
+	return &player1
 }
 
 func IsDead(player1 Character) bool {
