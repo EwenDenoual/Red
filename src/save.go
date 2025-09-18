@@ -64,12 +64,14 @@ func Getsave() (*Character) {
 	chara.inventaire.Tunique_de_l_aventurier = get_line_int(string(data), 18)
 	chara.inventaire.Bottes_de_l_aventurier = get_line_int(string(data), 19)
 
-	chara.spell.poing = get_line_int(string(data), 20)
-	chara.spell.dmg_poing = get_line_int(string(data), 21)
+	chara.inventaire.size_max = get_line_int(string(data), 20)
 
-	chara.equipment.equipement_tete = get_line_int(string(data), 22)
-	chara.equipment.equipement_torse = get_line_int(string(data), 23)
-	chara.equipment.equipement_pieds = get_line_int(string(data), 24)
+	chara.spell.poing = get_line_int(string(data), 21)
+	chara.spell.dmg_poing = get_line_int(string(data), 22)
+
+	chara.equipment.equipement_tete = get_line_int(string(data), 23)
+	chara.equipment.equipement_torse = get_line_int(string(data), 24)
+	chara.equipment.equipement_pieds = get_line_int(string(data), 25)
 	return &chara
 }
 
@@ -97,6 +99,8 @@ func Savegame(chara Character) {
 	file.WriteString(strconv.Itoa(chara.inventaire.Fourrure_de_loup) + "\n")
 	file.WriteString(strconv.Itoa(chara.inventaire.Peau_de_Troll) + "\n")
 
+	file.WriteString(strconv.Itoa(chara.inventaire.size_max) + "\n")
+
 	file.WriteString(strconv.Itoa(chara.inventaire.Chapeau_de_l_aventurier) + "\n")
 	file.WriteString(strconv.Itoa(chara.inventaire.Tunique_de_l_aventurier) + "\n")
 	file.WriteString(strconv.Itoa(chara.inventaire.Bottes_de_l_aventurier) + "\n")
@@ -117,11 +121,13 @@ func Savegame(chara Character) {
 // exp int
 // pv_max int
 // pv int
+
 // st
 // 	dmg int
 // 	dmg_emp int
 // 	taken_emp int
 // 	luck int
+
 // inventaire
 // 	potion int
 // 	potion_poison int
@@ -135,9 +141,13 @@ func Savegame(chara Character) {
 // 	Chapeau_de_l_aventurier int
 // 	Tunique_de_l_aventurier int
 // 	Bottes_de_l_aventurier int
+
+//  Size_max int
+
 // spell
 // 	poing     int
 // 	dmg_poing int
+
 // equipment
 // 	equipement_tete int
 // 	equipement_torse int
