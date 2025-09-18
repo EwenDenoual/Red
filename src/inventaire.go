@@ -93,7 +93,7 @@ func initInventory() Inventory {
 
 func DisplayInventory(player1 Character) {
 	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInventaire : ")
-	fmt.Printf("\n---------------------------------------------------------------\nPotion = %v\nPiece Or = %v\nPlume De Corbeau = %v\nCuir De Sanglier = %v\nFourrure De Loup = %v\nPeau De Troll = %v\nChapeau De L'Aventurier = %v\nTunique De L'aventurier = %v\nBottes De L'Aventurier = %v\n---------------------------------------------------------------\n\n", player1.inventaire.potion, player1.inventaire.piece_or, player1.inventaire.Plume_de_Corbeau,player1.inventaire.Cuir_de_Sanglier, player1.inventaire.Fourrure_de_loup, player1.inventaire.Peau_de_Troll, player1.inventaire.Chapeau_de_l_aventurier, player1.inventaire.Tunique_de_l_aventurier, player1.inventaire.Bottes_de_l_aventurier)
+	fmt.Printf("\n---------------------------------------------------------------\nPotion = %v\nPiece Or = %v\nPlume De Corbeau = %v\nCuir De Sanglier = %v\nFourrure De Loup = %v\nPeau De Troll = %v\nChapeau De L'Aventurier = %v\nTunique De L'aventurier = %v\nBottes De L'Aventurier = %v\n---------------------------------------------------------------\n\n", player1.inventaire.potion, player1.inventaire.piece_or, player1.inventaire.Plume_de_Corbeau, player1.inventaire.Cuir_de_Sanglier, player1.inventaire.Fourrure_de_loup, player1.inventaire.Peau_de_Troll, player1.inventaire.Chapeau_de_l_aventurier, player1.inventaire.Tunique_de_l_aventurier, player1.inventaire.Bottes_de_l_aventurier)
 }
 
 func TakePot(player1 Character) Character {
@@ -131,14 +131,18 @@ func PoisonPot(player1 Character) Character {
 }
 
 func UpgradeInventorySlot(player1 Character) Character {
-	if player1.inventaire.piece_or >= 30 {
-		player1.inventaire.piece_or -= 30
-		player1.inventaire.size_max += 30
-		println("Achat en cours : Potion de poison")
-		time.Sleep(3 * time.Second)
-		println("Achat effectué : Vous venez d'obtenir une potion de poison")
+	if !TotalItems(player1.inventaire) {
+		if player1.inventaire.piece_or >= 5 {
+			player1.inventaire.size_max += 10
+			player1.inventaire.piece_or -= 30
+			println("Achat en cours : Agrandissement de l'inventaire")
+			time.Sleep(3 * time.Second)
+			println("Achat effectué : Vous venez d'obtenir un Agrandissement de l'inventaire")
+		} else {
+			fmt.Println("Vous n'avez pas assez de pièces d'or.")
+		}
 	} else {
-		fmt.Println("Vous n'avez pas assez de pièces d'or.")
+		fmt.Println("Ton inventaire est plein ! Impossible d'ajouter plus d'items.")
 	}
 	return player1
 }
