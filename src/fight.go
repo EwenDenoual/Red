@@ -160,10 +160,10 @@ func fight(player1 Character) Character {
 		default:
 			println("invalid")
 		}
+		time.Sleep(1 * time.Second)
 		if mob.pv <= 0 {
 			return winfight(player1, mob)
 		}
-		time.Sleep(1 * time.Second)
 		player1, mob = opponentTurn(player1, mob)
 		time.Sleep(1 * time.Second)
 		Printfct("1: Attack\n2: Talk\n3: Use Item\n0: Run Away", 1, 8)
