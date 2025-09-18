@@ -66,8 +66,8 @@ func DisplayInfo(player1 Character) {
 	}
 }
 
-func CharacterCreation(player1 Character) Character {
-
+func CharacterCreation() Character {
+	player1 := *(InitCharacter())
 	fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer / Modifier votre personnage : ")
 	fmt.Println("Entrer le nom de votre personnage : ")
 	fmt.Scan(&player1.nom)
@@ -90,12 +90,15 @@ func CharacterCreation(player1 Character) Character {
 			player1.classe = "Elfes"
 			player1.pv_max = 80
 			player1.pv = player1.pv_max/2
+			player1.st.dmg_spe = 15
 			Printfct("Vous avez choisi la classe Elfes", 30,1)
 			time.Sleep(2 *time.Second)
 			return player1
 		case 3 :
 			player1.classe = "Nains"
 			player1.pv_max = 120
+			player1.st.dmg = 12
+			player1.st.dmg_spe = 3
 			player1.pv = player1.pv_max/2
 			Printfct("Vous avez choisi la classe Nains", 30,1)
 			time.Sleep(2 *time.Second)
