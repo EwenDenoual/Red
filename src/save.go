@@ -99,11 +99,11 @@ func Savegame(chara Character) {
 	file.WriteString(strconv.Itoa(chara.inventaire.Fourrure_de_loup) + "\n")
 	file.WriteString(strconv.Itoa(chara.inventaire.Peau_de_Troll) + "\n")
 
-	file.WriteString(strconv.Itoa(chara.inventaire.size_max) + "\n")
-
 	file.WriteString(strconv.Itoa(chara.inventaire.Chapeau_de_l_aventurier) + "\n")
 	file.WriteString(strconv.Itoa(chara.inventaire.Tunique_de_l_aventurier) + "\n")
 	file.WriteString(strconv.Itoa(chara.inventaire.Bottes_de_l_aventurier) + "\n")
+
+	file.WriteString(strconv.Itoa(chara.inventaire.size_max) + "\n")
 	
 	file.WriteString(strconv.Itoa(chara.spell.poing) + "\n")
 	file.WriteString(strconv.Itoa(chara.spell.dmg_poing) + "\n")

@@ -21,16 +21,20 @@ type opponent struct {
 }
 
 type stat struct {
-	dmg       int
-	dmg_emp   int
-	taken_emp int
-	luck      int
+	dmg         int
+	dmg_emp     int
+	dmg_spe     int
+	dmg_spe_emp int
+	taken_emp   int
+	luck        int
 }
 
 func initStat() stat {
 	var st stat
 	st.dmg = 10
 	st.dmg_emp = 100
+	st.dmg_spe = 10
+	st.dmg_spe_emp = 100
 	st.taken_emp = 100
 	st.luck = 100
 	return st
