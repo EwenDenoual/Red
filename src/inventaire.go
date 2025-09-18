@@ -35,41 +35,6 @@ func TotalItems(inv Inventory) bool {
 	return tot >= inv.size_max
 }
 
-// func (inv *Inventory) AddItem(item string, amount int) bool {
-// 	if inv.TotalItems()+amount > 10 {
-// 		fmt.Println("Ton inventaire est plein ! Impossible d’ajouter plus d’items.")
-// 		return false
-// 	}
-// 	switch item {
-// 	case "potion":
-// 		inv.potion += amount
-// 	case "potion_poison":
-// 		inv.potion_poison += amount
-// 	case "piece_or":
-// 		inv.piece_or += amount
-// 	case "Plume_de_Corbeau":
-// 		inv.Plume_de_Corbeau += amount
-// 	case "Cuir_de_Sanglier":
-// 		inv.Cuir_de_Sanglier += amount
-// 	case "Fourrure_de_loup":
-// 		inv.Fourrure_de_loup += amount
-// 	case "Peau_de_Troll":
-// 		inv.Peau_de_Troll += amount
-// 	case "Chapeau_de_l_aventurier":
-// 		inv.Chapeau_de_l_aventurier += amount
-// 	case "Tunique_de_l_aventurier":
-// 		inv.Tunique_de_l_aventurier += amount
-// 	case "Bottes_de_l_aventurier":
-// 		inv.Bottes_de_l_aventurier += amount
-// 	default:
-// 		fmt.Println("❌ Item inconnu :", item)
-// 		return false
-// 	}
-
-// 	fmt.Printf("✅ %v %s ajouté(s).\n", amount, item)
-// 	return true
-// }
-
 func initInventory() Inventory {
 	var inventaire_player1 Inventory
 	inventaire_player1.potion = 3
@@ -90,9 +55,11 @@ func initInventory() Inventory {
 	return inventaire_player1
 }
 
-func DisplayInventory(player1 Character) {
+func DisplayInventory(player1 Character) Character {
 	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInventaire : ")
 	fmt.Printf("\n---------------------------------------------------------------\nPotion = %v\nPiece Or = %v\nPlume De Corbeau = %v\nCuir De Sanglier = %v\nFourrure De Loup = %v\nPeau De Troll = %v\nChapeau De L'Aventurier = %v\nTunique De L'aventurier = %v\nBottes De L'Aventurier = %v\n---------------------------------------------------------------\n\n", player1.inventaire.potion, player1.inventaire.piece_or, player1.inventaire.Plume_de_Corbeau,player1.inventaire.Cuir_de_Sanglier, player1.inventaire.Fourrure_de_loup, player1.inventaire.Peau_de_Troll, player1.inventaire.Chapeau_de_l_aventurier, player1.inventaire.Tunique_de_l_aventurier, player1.inventaire.Bottes_de_l_aventurier)
+	player1 = Equipement(player1)
+	return player1
 }
 
 func TakePot(player1 Character) Character {
@@ -142,6 +109,85 @@ func UpgradeInventorySlot(player1 Character) Character {
 		}
 	} else {
 		fmt.Println("Ton inventaire est plein ! Impossible d'ajouter plus d'items.")
+	}
+	return player1
+}
+
+func Equipement(player1 Character) Character {
+	var i int
+		Printfct("Equipement : \n\n1: Equiper tete\n2: Equiper torse\n3: Equiper botte\n\n0: Retour", 1, 20)
+		for {
+			fmt.Scanln(&i)
+			switch i {
+			case 0:
+				return player1
+			case 1:
+				if player1.equipment.equipement_tete > 0 {
+					Printfct("Vous êtes déjà équipé d’un chapeau.", 30,20)
+					Printfct("Equipement : \n\n1: Equiper tete\n2: Equiper torse\n3: Equiper botte\n\n0: Retour", 7, 20)
+				} else {
+					player1 = Equipe_tete(player1)
+					Printfct("Equipement : \n\n1: Equiper tete\n2: Equiper torse\n3: Equiper botte\n\n0: Retour", 7, 20)
+				}
+				
+			case 2:
+				if player1.equipment.equipement_torse > 1 {
+					Printfct("Vous êtes déjà équipé d’une tunique.", 30,20)
+					Printfct("Equipement : \n\n1: Equiper tete\n2: Equiper torse\n3: Equiper botte\n\n0: Retour", 7, 20)
+				} else {
+					player1 = Equipe_torse(player1)
+					Printfct("Equipement : \n\n1: Equiper tete\n2: Equiper torse\n3: Equiper botte\n\n0: Retour", 7, 20)
+				}
+			case 3:
+				if player1.equipment.equipement_pieds > 1 {
+					Printfct("Vous êtes déjà équipé de bottes.", 30,20)
+					Printfct("Equipement : \n\n1: Equiper tete\n2: Equiper torse\n3: Equiper botte\n\n0: Retour", 7, 20)
+				} else {
+					player1 = Equipe_pieds(player1)
+					Printfct("Equipement : \n\n1: Equiper tete\n2: Equiper torse\n3: Equiper botte\n\n0: Retour", 7, 20)
+				}
+			default:
+				println("invalid")
+			}
+		}
+}
+
+
+func Equipe_tete(player1 Character) Character {
+	if player1.inventaire.Chapeau_de_l_aventurier >= 1 {
+		Printfct("Votre chapeau de l’aventurier a été équipé.", 30,20)
+		player1.inventaire.Chapeau_de_l_aventurier -= 1
+		player1.equipment.equipement_tete += 1
+		player1.pv_max += 10
+		player1.pv += 10
+	} else {
+		Printfct("Vous ne disposez pas d’équipement de tête.", 30,20)
+	}
+	return player1
+}
+
+func Equipe_torse(player1 Character) Character {
+	if player1.inventaire.Tunique_de_l_aventurier >= 1 {
+		Printfct("Votre tunique de l’aventurier a été équipé.", 30,20)
+		player1.inventaire.Tunique_de_l_aventurier -= 1
+		player1.equipment.equipement_torse += 1
+		player1.pv_max += 25
+		player1.pv += 25
+	} else {
+		Printfct("Vous ne disposez pas d’équipement de torse.", 30,20)
+	}
+	return player1
+}
+
+func Equipe_pieds(player1 Character) Character {
+	if player1.inventaire.Bottes_de_l_aventurier >= 1 {
+		Printfct("Vos bottes de l’aventurier a été équipé.", 30,20)
+		player1.inventaire.Bottes_de_l_aventurier -= 1
+		player1.equipment.equipement_pieds += 1
+		player1.pv_max += 15
+		player1.pv += 15	
+	} else {
+		Printfct("Vous ne disposez pas d’équipement de pieds.", 30,20)
 	}
 	return player1
 }
