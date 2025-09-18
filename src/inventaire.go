@@ -38,6 +38,7 @@ func TotalItems(inv Inventory) bool {
 func initInventory() Inventory {
 	var inventaire_player1 Inventory
 	inventaire_player1.potion = 3
+	inventaire_player1.potion_poison = 0
 
 	inventaire_player1.piece_or = 10
 
@@ -99,11 +100,11 @@ func PoisonPot(player1 Character) Character {
 func UpgradeInventorySlot(player1 Character) Character {
 	if !TotalItems(player1.inventaire) {
 		if player1.inventaire.piece_or >= 5 {
-				player1.inventaire.size_max += 10
-				player1.inventaire.piece_or -= 30
-				println("Achat en cours : Agrandissement de l'inventaire")
-				time.Sleep(3 * time.Second)
-				println("Achat effectué : Vous venez d'obtenir un Agrandissement de l'inventaire")
+			player1.inventaire.size_max += 10
+			player1.inventaire.piece_or -= 30
+			println("Achat en cours : Agrandissement de l'inventaire")
+			time.Sleep(3 * time.Second)
+			println("Achat effectué : Vous venez d'obtenir un Agrandissement de l'inventaire")
 		} else {
 			fmt.Println("Vous n'avez pas assez de pièces d'or.")
 		}
