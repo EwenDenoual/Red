@@ -73,13 +73,14 @@ func TotalItems(inv Inventory) bool {
 func initInventory() Inventory {
 	var inventaire_player1 Inventory
 	inventaire_player1.potion = 3
+	inventaire_player1.potion_poison = 0
 
 	inventaire_player1.piece_or = 10
 
-	inventaire_player1.Plume_de_Corbeau = 2
-	inventaire_player1.Cuir_de_Sanglier = 2
-	inventaire_player1.Fourrure_de_loup = 2
-	inventaire_player1.Peau_de_Troll = 2
+	inventaire_player1.Plume_de_Corbeau = 0
+	inventaire_player1.Cuir_de_Sanglier = 0
+	inventaire_player1.Fourrure_de_loup = 0
+	inventaire_player1.Peau_de_Troll = 0
 
 	inventaire_player1.Chapeau_de_l_aventurier = 0
 	inventaire_player1.Tunique_de_l_aventurier = 0
@@ -130,7 +131,14 @@ func PoisonPot(player1 Character) Character {
 }
 
 func UpgradeInventorySlot(player1 Character) Character {
-	player1.inventaire.size_max = 30
-
+	if player1.inventaire.piece_or >= 30 {
+		player1.inventaire.piece_or -= 30
+		player1.inventaire.size_max += 30
+		println("Achat en cours : Potion de poison")
+		time.Sleep(3 * time.Second)
+		println("Achat effectué : Vous venez d'obtenir une potion de poison")
+	} else {
+		fmt.Println("Vous n'avez pas assez de pièces d'or.")
+	}
 	return player1
 }
