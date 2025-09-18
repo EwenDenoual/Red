@@ -19,8 +19,13 @@ func Menu(chara Character) Character {
 			DisplayInfo(chara)
 			Printfct("1: Créer votre personnage\n2: Statistiques du personnage\n3: Inventaire\n4: Utiliser une potion\n\n0: Retour", 0, 11)
 		case 3:
-			DisplayInventory(chara)
-			Printfct("1: Créer votre personnage\n2: Statistiques du personnage\n3: Inventaire\n4: Utiliser une potion\n\n0: Retour", 0, 16)
+			if chara.nom != "" {
+				chara = DisplayInventory(chara)
+				Printfct("1: Créer votre personnage\n2: Statistiques du personnage\n3: Inventaire\n4: Utiliser une potion\n\n0: Retour", 20,3)
+			} else {
+				fmt.Printf("Veillez créer un personnage")
+				Printfct("Bienvenue dans le jeu :\n\n1: Accéder au menu du personnage\n2: Aller chez le forgeron\n3: Aller chez le marchand\n4: Trouver un adversaire\n\n0: Retour", 2, 7)
+			}
 		case 4:
 		 	chara = TakePot(chara)
 			Printfct("1: Créer votre personnage\n2: Statistiques du personnage\n3: Inventaire\n4: Utiliser une potion\n\n0: Retour", 0, 10)
