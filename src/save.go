@@ -67,7 +67,7 @@ func Getsave() (*Character) {
 	chara.inventaire.size_max = get_line_int(string(data), 20)
 
 	chara.spell.poing = get_line_int(string(data), 21)
-	chara.spell.dmg_poing = get_line_int(string(data), 22)
+	chara.spell.boule_de_feu = get_line_int(string(data), 22)
 
 	chara.equipment.equipement_tete = get_line_int(string(data), 23)
 	chara.equipment.equipement_torse = get_line_int(string(data), 24)
@@ -106,7 +106,7 @@ func Savegame(chara Character) {
 	file.WriteString(strconv.Itoa(chara.inventaire.size_max) + "\n")
 	
 	file.WriteString(strconv.Itoa(chara.spell.poing) + "\n")
-	file.WriteString(strconv.Itoa(chara.spell.dmg_poing) + "\n")
+	file.WriteString(strconv.Itoa(chara.spell.boule_de_feu) + "\n")
 	
 	file.WriteString(strconv.Itoa(chara.equipment.equipement_tete) + "\n")
 	file.WriteString(strconv.Itoa(chara.equipment.equipement_torse) + "\n")
@@ -146,7 +146,7 @@ func Savegame(chara Character) {
 
 // spell
 // 	poing     int
-// 	dmg_poing int
+// 	boule_de_feu int
 
 // equipment
 // 	equipement_tete int

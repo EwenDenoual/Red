@@ -12,15 +12,15 @@ type Character struct {
 	exp        int
 	pv_max     int
 	pv         int
+	mana       int
 	st         stat
 	inventaire Inventory
 	spell      spellbook
-	equipment Equipment
+	equipment  Equipment
 }
 
-
 type Equipment struct {
-	equipement_tete int
+	equipement_tete  int
 	equipement_torse int
 	equipement_pieds int
 }
@@ -41,6 +41,7 @@ func InitCharacter() *Character {
 	player1.exp = 0
 	player1.pv_max = 100
 	player1.pv = 40
+	player1.mana = 50
 	player1.st = initStat()
 	player1.inventaire = initInventory()
 	player1.spell = initSpellbook()
@@ -75,33 +76,33 @@ func CharacterCreation() Character {
 	println("Entrer la classe de votre personnage : ")
 
 	var i int
-	Printfct("1: Classe Humain\n2: Classe Elfes\n3: Classe Nains", 3,9)
+	Printfct("1: Classe Humain\n2: Classe Elfes\n3: Classe Nains", 3, 9)
 	for {
 		fmt.Scanln(&i)
 		switch i {
-		case 1 :
+		case 1:
 			player1.classe = "Humain"
 			player1.pv_max = 100
-			player1.pv = player1.pv_max/2
-			Printfct("Vous avez choisi la classe Humain", 30,1)
-			time.Sleep(2 *time.Second)
+			player1.pv = player1.pv_max / 2
+			Printfct("Vous avez choisi la classe Humain", 30, 1)
+			time.Sleep(2 * time.Second)
 			return player1
-		case 2 : 
+		case 2:
 			player1.classe = "Elfes"
 			player1.pv_max = 80
-			player1.pv = player1.pv_max/2
+			player1.pv = player1.pv_max / 2
 			player1.st.dmg_spe = 15
-			Printfct("Vous avez choisi la classe Elfes", 30,1)
-			time.Sleep(2 *time.Second)
+			Printfct("Vous avez choisi la classe Elfes", 30, 1)
+			time.Sleep(2 * time.Second)
 			return player1
-		case 3 :
+		case 3:
 			player1.classe = "Nains"
 			player1.pv_max = 120
 			player1.st.dmg = 12
 			player1.st.dmg_spe = 3
-			player1.pv = player1.pv_max/2
-			Printfct("Vous avez choisi la classe Nains", 30,1)
-			time.Sleep(2 *time.Second)
+			player1.pv = player1.pv_max / 2
+			Printfct("Vous avez choisi la classe Nains", 30, 1)
+			time.Sleep(2 * time.Second)
 			return player1
 		}
 	}

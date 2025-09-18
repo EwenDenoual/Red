@@ -7,8 +7,8 @@ import (
 )
 
 type spellbook struct {
-	poing     int
-	dmg_poing int
+	poing        int
+	boule_de_feu int
 }
 
 type opponent struct {
@@ -43,7 +43,7 @@ func initStat() stat {
 func initSpellbook() spellbook {
 	var spell spellbook
 	spell.poing = 1
-	spell.dmg_poing = 10
+	spell.boule_de_feu = 0
 	return spell
 }
 
@@ -86,7 +86,7 @@ func winfight(player Character, mob opponent) Character {
 	var i int
 	tune := (mob.reward * player.st.luck) / 100
 	player.inventaire.piece_or += tune
-	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBravo, tu l'as vaincu %v !\nVous gagnez %v or", mob.name, tune)
+	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBravo, vous l'avez vaincu %v !\nVous gagnez %v or", mob.name, tune)
 	player.exp += mob.exp
 	if player.exp >= 100 {
 		player = lvlup(player)
@@ -118,6 +118,29 @@ func opponentTurn(player1 Character, mob opponent) (Character, opponent) {
 }
 
 func attack(player1 Character, mob opponent) (Character, opponent) {
+	var i int
+
+	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1: Coup de poing\n")
+	if (player1.spell.boule_de_feu == 1) {
+		fmt.Printf("2: Boule de feu\n")
+	}
+	Printfct("\n", 0, 5 + player1.spell.boule_de_feu)
+	for {
+		fmt.Scanln(&i)
+		switch i {
+		case 1:
+			return poing(player1, mob)
+		case 2:
+			if (player1.spell.boule_de_feu == 1) {
+				return poing(player1, mob)
+			}
+		default:
+			println("invalid")
+		}
+	}
+}
+
+func poing(player1 Character, mob opponent) (Character, opponent) {
 	dmg := (player1.st.dmg * player1.st.dmg_emp) / 100
 	crit := rand.Intn(100) + 100
 	if crit < player1.st.luck {
