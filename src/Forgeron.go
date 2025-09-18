@@ -29,61 +29,70 @@ func Menu_forgeron(player1 Character) Character {
 }
 
 func Chapeau_de_l_aventurier(player1 Character) Character {
-	
-	if player1.inventaire.piece_or >= 5 {
-		player1.inventaire.piece_or -= 5
-		if player1.inventaire.Plume_de_Corbeau > 0 || player1.inventaire.Cuir_de_Sanglier > 0 {
-			println("Votre Chapeau de l'aventurier est en cours de fabrication ")
-			time.Sleep(3 *time.Second)
-			println("Votre Chapeau de l'aventurier a ete fabriqué ")
-			player1.inventaire.Plume_de_Corbeau -= 1
-			player1.inventaire.Cuir_de_Sanglier -= 1
-			player1.inventaire.Chapeau_de_l_aventurier += 1
+	if !TotalItems(player1.inventaire) {
+		if player1.inventaire.piece_or >= 5 {
+			player1.inventaire.piece_or -= 5
+			if player1.inventaire.Plume_de_Corbeau > 0 || player1.inventaire.Cuir_de_Sanglier > 0 {
+				println("Votre Chapeau de l'aventurier est en cours de fabrication ")
+				time.Sleep(3 *time.Second)
+				println("Votre Chapeau de l'aventurier a ete fabriqué ")
+				player1.inventaire.Plume_de_Corbeau -= 1
+				player1.inventaire.Cuir_de_Sanglier -= 1
+				player1.inventaire.Chapeau_de_l_aventurier += 1
+			} else {
+				println("Vous n'avez pas assez de ressources")
+			}
 		} else {
-			println("Vous n'avez pas assez de ressources")
+			println("Vous n'avez pas assez de pieces")
 		}
 	} else {
-		println("Vous n'avez pas assez de pieces")
+		fmt.Println("Ton inventaire est plein ! Impossible d'ajouter plus d'items.")
 	}
 	return player1
 }
 
 func Tunique_de_l_aventurier(player1 Character) Character {
-	
-	if player1.inventaire.piece_or >= 5 {
-		player1.inventaire.piece_or -= 5
-		if player1.inventaire.Fourrure_de_loup == 2 || player1.inventaire.Peau_de_Troll == 1 {
-			println("Votre Tunique de l'aventurier est en cours de fabrication ")
-			time.Sleep(3 *time.Second)
-			println("Votre Tunique de l'aventurier a ete fabriqué ")
-			player1.inventaire.Fourrure_de_loup -= 2
-			player1.inventaire.Peau_de_Troll -= 1
-			player1.inventaire.Tunique_de_l_aventurier += 1
+	if !TotalItems(player1.inventaire) {
+		if player1.inventaire.piece_or >= 5 {
+			player1.inventaire.piece_or -= 5
+			if player1.inventaire.Fourrure_de_loup == 2 || player1.inventaire.Peau_de_Troll == 1 {
+				println("Votre Tunique de l'aventurier est en cours de fabrication ")
+				time.Sleep(3 *time.Second)
+				println("Votre Tunique de l'aventurier a ete fabriqué ")
+				player1.inventaire.Fourrure_de_loup -= 2
+				player1.inventaire.Peau_de_Troll -= 1
+				player1.inventaire.Tunique_de_l_aventurier += 1
+			} else {
+				println("Vous n'avez pas assez de ressources")
+			}
 		} else {
-			println("Vous n'avez pas assez de ressources")
+			println("Vous n'avez pas assez de pieces")
 		}
 	} else {
-		println("Vous n'avez pas assez de pieces")
+		fmt.Println("Ton inventaire est plein ! Impossible d'ajouter plus d'items.")
 	}
 	return player1
 }
 
 func Bottes_de_l_aventurier(player1 Character) Character {
-	
-	if player1.inventaire.piece_or >= 5 {
-		player1.inventaire.piece_or -= 5
-		if player1.inventaire.Fourrure_de_loup > 1 || player1.inventaire.Cuir_de_Sanglier > 1 {
-			println("Vos Bottes de l'aventurier sont en cours de fabrication ")
-			time.Sleep(3 *time.Second)
-			println("Vos Bottes de l'aventurier ont ete fabriqué ")
-			player1.inventaire.Fourrure_de_loup -= 1
-			player1.inventaire.Cuir_de_Sanglier -= 1
-			player1.inventaire.Bottes_de_l_aventurier += 1
+	if !TotalItems(player1.inventaire) {
+		if player1.inventaire.piece_or >= 5 {
+			player1.inventaire.piece_or -= 5
+			if player1.inventaire.Fourrure_de_loup > 1 || player1.inventaire.Cuir_de_Sanglier > 1 {
+				println("Vos Bottes de l'aventurier sont en cours de fabrication ")
+				time.Sleep(3 *time.Second)
+				println("Vos Bottes de l'aventurier ont ete fabriqué ")
+				player1.inventaire.Fourrure_de_loup -= 1
+				player1.inventaire.Cuir_de_Sanglier -= 1
+				player1.inventaire.Bottes_de_l_aventurier += 1
+			} else {
+				println("Vous n'avez pas assez de ressources")
+			}
 		} else {
-			println("Vous n'avez pas assez de ressources")
+			println("Vous n'avez pas assez de pieces")
 		}
 	} else {
-		println("Vous n'avez pas assez de pieces")
+		fmt.Println("Ton inventaire est plein ! Impossible d'ajouter plus d'items.")
 	}
 	return player1
 }
