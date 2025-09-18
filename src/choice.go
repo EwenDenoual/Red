@@ -13,7 +13,7 @@ func Menu(chara Character) Character {
 		case 0:
 			return chara
 		case 1 : 
-			chara = CharacterCreation(chara)
+			chara = CharacterCreation()
 			Printfct("1: Créer votre personnage\n2: Statistiques du personnage\n3: Inventaire\n4: Utiliser une potion\n\n0: Retour", 0, 3)
 		case 2:
 			DisplayInfo(chara)
