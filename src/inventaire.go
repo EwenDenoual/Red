@@ -76,10 +76,10 @@ func initInventory() Inventory {
 
 	inventaire_player1.piece_or = 10
 
-	inventaire_player1.Plume_de_Corbeau = 2
-	inventaire_player1.Cuir_de_Sanglier = 2
-	inventaire_player1.Fourrure_de_loup = 2
-	inventaire_player1.Peau_de_Troll = 2
+	inventaire_player1.Plume_de_Corbeau = 0
+	inventaire_player1.Cuir_de_Sanglier = 0
+	inventaire_player1.Fourrure_de_loup = 0
+	inventaire_player1.Peau_de_Troll = 0
 
 	inventaire_player1.Chapeau_de_l_aventurier = 0
 	inventaire_player1.Tunique_de_l_aventurier = 0
