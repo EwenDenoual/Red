@@ -13,7 +13,7 @@ func lvlup(player Character) Character {
 	roll = rand.Intn(11)
 	player.pv_max += roll
 	player.pv += roll
-	fmt.Printf("\npv max: +%v => %v\n", roll, player.pv_max)
+	fmt.Printf("\nPv max: +%v => %v\n", roll, player.pv_max)
 	roll = rand.Intn(5)
 	player.st.dmg += roll
 	fmt.Printf("att: +%v => %v\n", roll, player.st.dmg)
