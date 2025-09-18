@@ -1,8 +1,8 @@
 package main
 
 import (
-	"red/src"
 	"fmt"
+	"red/src"
 	"time"
 )
 
@@ -32,27 +32,30 @@ func chargement() {
  /` + "`" + `    \      /    ` + "`" + `\
 /       '----'       \
 `
-    fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+	fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 	fmt.Print(gobelin)
-	fmt.Print("\n\n\n")
 	fmt.Print("\n\n")
 	charge := "="
 	fmt.Printf("-- JEU EN COURS DE CHARGEMENT : --\n\n")
 	for i := 0; i < 7; i++ {
 		charge += "="
 		fmt.Print(charge)
-		time.Sleep(250 *time.Millisecond)
+		time.Sleep(250 * time.Millisecond)
 	}
 	fmt.Print("\n\n")
 	fmt.Print("----- VOUS ENTREZ DANS LE JEU -----\n")
 	fmt.Print("\n\n")
-	time.Sleep(2 *time.Second)
+	time.Sleep(2 * time.Second)
 }
 
 func main() {
 	config()
-	Character := red.InitCharacter()
-	red.Choice(Character)
+	Character := red.Getsave()
+	if Character == nil {
+		Character = red.InitCharacter()
+	}
+	*Character = red.Choice(*Character)
+	red.Savegame(*Character)
 	for range 20 {
 		fmt.Printf("\n")
 	}
