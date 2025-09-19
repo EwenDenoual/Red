@@ -7,7 +7,7 @@ import (
 
 func Menu_marchand(player1 Character) Character {
 	var i int
-	Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n\n0: Retour", 30, 9)
+	Printfct("Bienvenue chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n9: Boule de feu (50 Pieces d'Or)\n\n0: Retour", 30, 10)
 	for {
 		fmt.Scanln(&i)
 		switch i {
@@ -15,28 +15,31 @@ func Menu_marchand(player1 Character) Character {
 			return player1
 		case 1:
 			player1 = Acheter_potion_vie(player1)
-			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n\n0: Retour", 1, 11)
+			Printfct("Bienvenue chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n9: Boule de feu (50 Pieces d'Or)\n\n0: Retour", 1, 11)
 		case 2:
 			player1 = Acheter_potion_mana(player1)
-			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n\n0: Retour", 1, 11)
+			Printfct("Bienvenue chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n9: Boule de feu (50 Pieces d'Or)\n\n0: Retour", 1, 11)
 		case 3:
 			player1 = Acheter_potion_poison(player1)
-			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n\n0: Retour", 1, 11)
+			Printfct("Bienvenue chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n9: Boule de feu (50 Pieces d'Or)\n\n0: Retour", 1, 11)
 		case 4:
 			player1 = UpgradeInventorySlot(player1)
-			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n\n0: Retour", 1, 11)
+			Printfct("Bienvenue chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n9: Boule de feu (50 Pieces d'Or)\n\n0: Retour", 1, 11)
 		case 5:
 			player1 = Acheter_Peau_de_Troll(player1)
-			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n\n0: Retour", 1, 11)
+			Printfct("Bienvenue chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n9: Boule de feu (50 Pieces d'Or)\n\n0: Retour", 1, 11)
 		case 6:
 			player1 = Acheter_Plume_de_Corbeau(player1)
-			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n\n0: Retour", 1, 11)
+			Printfct("Bienvenue chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n9: Boule de feu (50 Pieces d'Or)\n\n0: Retour", 1, 11)
 		case 7:
 			player1 = Acheter_Cuir_de_Sanglier(player1)
-			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n\n0: Retour", 1, 11)
+			Printfct("Bienvenue chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n9: Boule de feu (50 Pieces d'Or)\n\n0: Retour", 1, 11)
 		case 8:
 			player1 = Acheter_Fourrure_de_loup(player1)
-			Printfct("Bienvenu chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n\n0: Retour", 1, 11)
+			Printfct("Bienvenue chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n9: Boule de feu (50 Pieces d'Or)\n\n0: Retour", 1, 11)
+		case 9:
+			player1 = Acheter_Boule_de_feu(player1)
+			Printfct("Bienvenue chez le marchand, que voulez vous acheter :\n\n1: Potion de vie (2 Pieces d'or)\n2: Potion de mana (2 Piece d'or)\n3: Potion de poison (2 Pieces d'or)\n4: Agrandir l'inventaire (30 Pieces d'Or)\n5: Peau de Troll (5 Pieces d'Or)\n6: Plume de Corbeau (5 Pieces d'Or)\n7: Cuir de Sanglier (5 Pieces d'Or)\n8: Fourrure de loup (5 Pieces d'Or)\n9: Boule de feu (50 Pieces d'Or)\n\n0: Retour", 1, 11)
 		default:
 			println("invalid")
 		}
@@ -158,6 +161,24 @@ func Acheter_Fourrure_de_loup(player1 Character) Character {
 		}
 	} else {
 		fmt.Println("Ton inventaire est plein ! Impossible d'ajouter plus d'items.")
+	}
+	return player1
+}
+
+func Acheter_Boule_de_feu(player1 Character) Character {
+	if player1.inventaire.piece_or < 50 {
+		fmt.Print("Vous n'avez pas assez de pièces d'or.")
+	} else {
+		if player1.spell.boule_de_feu != 1 {
+			player1.spell.boule_de_feu = 1
+			player1.inventaire.piece_or -= 50
+			Printfct("Achat en cours : Boule de feu", 30, 1)
+			time.Sleep(3 * time.Second)
+			println("Achat effectué : Vous venez d'obtenir une Boule de feu")
+
+		} else {
+			fmt.Print("Vous possédez déjà une boule de feu")
+		}
 	}
 	return player1
 }
