@@ -17,7 +17,7 @@ func Menu(chara Character) Character {
 			Printfct("1: Créer votre personnage\n2: Statistiques du personnage\n3: Inventaire\n4: Utiliser une potion\n\n0: Retour", 0, 3)
 		case 2:
 			DisplayInfo(chara)
-			Printfct("1: Créer votre personnage\n2: Statistiques du personnage\n3: Inventaire\n4: Utiliser une potion\n\n0: Retour", 0, 11)
+			Printfct("1: Créer votre personnage\n2: Statistiques du personnage\n3: Inventaire\n4: Utiliser une potion\n\n0: Retour", 0, 13)
 		case 3:
 			if chara.nom != "" {
 				chara = DisplayInventory(chara)
