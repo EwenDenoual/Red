@@ -49,30 +49,32 @@ func Getsave() (*Character) {
 
 	chara.st.dmg = get_line_int(string(data), 7)
 	chara.st.dmg_emp = get_line_int(string(data), 8)
-	chara.st.taken_emp = get_line_int(string(data), 9)
-	chara.st.luck = get_line_int(string(data), 10)
+	chara.st.dmg_spe = get_line_int(string(data), 9)
+	chara.st.dmg_spe_emp = get_line_int(string(data), 10)
+	chara.st.taken_emp = get_line_int(string(data), 11)
+	chara.st.luck = get_line_int(string(data), 12)
 
-	chara.inventaire.potion = get_line_int(string(data), 11)
-	chara.inventaire.potion_poison = get_line_int(string(data), 12)
-	chara.inventaire.piece_or = get_line_int(string(data), 13)
+	chara.inventaire.potion = get_line_int(string(data), 13)
+	chara.inventaire.potion_poison = get_line_int(string(data), 14)
+	chara.inventaire.piece_or = get_line_int(string(data), 15)
 
-	chara.inventaire.Plume_de_Corbeau = get_line_int(string(data), 14)
-	chara.inventaire.Cuir_de_Sanglier = get_line_int(string(data), 15)
-	chara.inventaire.Fourrure_de_loup = get_line_int(string(data), 16)
-	chara.inventaire.Peau_de_Troll = get_line_int(string(data), 17)
+	chara.inventaire.Plume_de_Corbeau = get_line_int(string(data), 16)
+	chara.inventaire.Cuir_de_Sanglier = get_line_int(string(data), 17)
+	chara.inventaire.Fourrure_de_loup = get_line_int(string(data), 18)
+	chara.inventaire.Peau_de_Troll = get_line_int(string(data), 19)
 
-	chara.inventaire.Chapeau_de_l_aventurier = get_line_int(string(data), 18)
-	chara.inventaire.Tunique_de_l_aventurier = get_line_int(string(data), 19)
-	chara.inventaire.Bottes_de_l_aventurier = get_line_int(string(data), 20)
+	chara.inventaire.Chapeau_de_l_aventurier = get_line_int(string(data), 20)
+	chara.inventaire.Tunique_de_l_aventurier = get_line_int(string(data), 21)
+	chara.inventaire.Bottes_de_l_aventurier = get_line_int(string(data), 22)
 
-	chara.inventaire.size_max = get_line_int(string(data), 21)
+	chara.inventaire.size_max = get_line_int(string(data), 23)
 
-	chara.spell.poing = get_line_int(string(data), 22)
-	chara.spell.boule_de_feu = get_line_int(string(data), 23)
+	chara.spell.poing = get_line_int(string(data), 24)
+	chara.spell.boule_de_feu = get_line_int(string(data), 25)
 
-	chara.equipment.equipement_tete = get_line_int(string(data), 24)
-	chara.equipment.equipement_torse = get_line_int(string(data), 25)
-	chara.equipment.equipement_pieds = get_line_int(string(data), 26)
+	chara.equipment.equipement_tete = get_line_int(string(data), 26)
+	chara.equipment.equipement_torse = get_line_int(string(data), 27)
+	chara.equipment.equipement_pieds = get_line_int(string(data), 28)
 	return &chara
 }
 
@@ -89,6 +91,8 @@ func Savegame(chara Character) {
 
 	file.WriteString(strconv.Itoa(chara.st.dmg) + "\n")
 	file.WriteString(strconv.Itoa(chara.st.dmg_emp) + "\n")
+	file.WriteString(strconv.Itoa(chara.st.dmg_spe) + "\n")
+	file.WriteString(strconv.Itoa(chara.st.dmg_spe_emp) + "\n")
 	file.WriteString(strconv.Itoa(chara.st.taken_emp) + "\n")
 	file.WriteString(strconv.Itoa(chara.st.luck) + "\n")
 

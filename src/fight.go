@@ -91,7 +91,7 @@ func winfight(player Character, mob opponent) Character {
 	if player.exp >= 100 {
 		player = lvlup(player)
 	}
-	Printfct("Vous voulez continuer ?", 2, 6)
+	Printfct("Vous voulez continuer ?", 2, 7)
 	fmt.Scanln(&i)
 	return player
 }
@@ -132,12 +132,36 @@ func attack(player1 Character, mob opponent) (Character, opponent) {
 			return poing(player1, mob)
 		case 2:
 			if (player1.spell.boule_de_feu == 1) {
-				return poing(player1, mob)
+				return bdf(player1, mob)
 			}
 		default:
 			println("invalid")
 		}
 	}
+}
+
+func bdf(player1 Character, mob opponent) (Character, opponent) {
+	if player1.mana < 5 {
+		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu n'as pas assez de mana")
+		return player1, mob
+	}
+	player1.mana -= 5
+	dmg := (player1.st.dmg_spe * player1.st.dmg_spe_emp) / 100 + 2
+	crit := rand.Intn(100) + 100
+	if crit < player1.st.luck {
+		crit = 1
+		dmg *= 2
+	}
+	mob.pv -= dmg
+	if mob.pv < 0 {
+		mob.pv = 0
+	}
+	if crit != 1 {
+		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu attaques %v pour %v dégats", mob.name, dmg)
+	} else {
+		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAH ! Tu attaques %v pour %v dégats. C'est un coup critique !", mob.name, dmg)
+	}
+	return player1, mob
 }
 
 func poing(player1 Character, mob opponent) (Character, opponent) {
@@ -178,11 +202,11 @@ func fight(player1 Character) Character {
 		case 1:
 			player1, mob = attack(player1, mob)
 		case 2:
-			fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIl semble que l'ennemi ne veuille pas discuter.")
+			Printfct("Il semble que l'ennemi ne veuille pas discuter.", 30, 0)
 		case 3:
 			player1 = TakePot(player1)
 		case 12:
-			fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCHEAT CODE POWER !")
+			Printfct("CHEAT CODE POWER !", 30, 0)
 			mob.pv = 0
 		default:
 			println("invalid")

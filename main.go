@@ -11,8 +11,7 @@ func config() {
 	fmt.Printf("------------------------------------------------------------------------------------------------")
 	fmt.Print("\n\n\n\n\n\n\n\n\n\n\n")
 	fmt.Print("POUR CONFIGURER VOTRE TERMINAL : AJUSTEZ SA TAILLE POUR QU’ELLE SOIT JUSTE AU-DESSUS DE LA BARRE")
-	fmt.Print("\n------------------------ UNE FOIS CONFIGURE CLIQUER SUR ENTREE --------------------------------")
-	fmt.Print("\n\n\n\n\n\n\n\n\n")
+	red.Printfct("------------------------ UNE FOIS CONFIGURE CLIQUER SUR ENTREE --------------------------------", 1, 9)
 	var entrer int
 	fmt.Scanln(&entrer)
 	chargement()
@@ -56,7 +55,7 @@ func main() {
 	}
 	*Character = red.Choice(*Character)
 	red.Savegame(*Character)
-	for range 20 {
+	for range 100 {
 		fmt.Printf("\n")
 	}
 }
