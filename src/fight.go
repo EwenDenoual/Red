@@ -202,11 +202,11 @@ func fight(player1 Character) Character {
 		case 1:
 			player1, mob = attack(player1, mob)
 		case 2:
-			fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIl semble que l'ennemi ne veuille pas discuter.")
+			Printfct("Il semble que l'ennemi ne veuille pas discuter.", 30, 0)
 		case 3:
 			player1 = TakePot(player1)
 		case 12:
-			fmt.Println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCHEAT CODE POWER !")
+			Printfct("CHEAT CODE POWER !", 30, 0)
 			mob.pv = 0
 		default:
 			println("invalid")
