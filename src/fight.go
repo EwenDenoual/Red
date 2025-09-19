@@ -188,7 +188,7 @@ func fight(player1 Character) Character {
 	mob := initMob()
 
 	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n%v apparaît !\n", mob.name)
-	Printfct("1: Attaquer\n2: Parler\n3: Utiliser une potion\n0: Fuir", 1, 3)
+	Printfct("1: Attaquer\n2: Parler\n3: Menu Objet\n0: Fuir", 1, 3)
 	for {
 		if IsDead(player1) {
 			return *InitCharacter()
@@ -204,7 +204,7 @@ func fight(player1 Character) Character {
 		case 2:
 			Printfct("Il semble que l'ennemi ne veuille pas discuter.", 30, 0)
 		case 3:
-			player1 = TakePot(player1)
+			player1 = Menu_objet(player1)
 		case 12:
 			Printfct("CHEAT CODE POWER !", 30, 0)
 			mob.pv = 0
