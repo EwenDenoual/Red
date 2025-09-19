@@ -25,21 +25,21 @@ func get_line_int(data string, n int) int {
 		if v == '\n' {
 			cmp_n++
 		} else if cmp_n == n {
-			ret = ret * 10 + int(v - '0')
+			ret = ret*10 + int(v-'0')
 		}
 	}
 	return ret
 }
 
-func Getsave() (*Character) {
+func Getsave() *Character {
 	data, err := os.ReadFile(".save")
 	if err != nil {
-		file, _ :=os.OpenFile(".save", os.O_CREATE, 0600)
+		file, _ := os.OpenFile(".save", os.O_CREATE, 0600)
 		file.Close()
 		return nil
 	}
 	var chara Character
-	chara.nom = get_line_string(string(data), 0)	
+	chara.nom = get_line_string(string(data), 0)
 	chara.classe = get_line_string(string(data), 1)
 	chara.niveau = get_line_int(string(data), 2)
 	chara.exp = get_line_int(string(data), 3)
@@ -56,30 +56,31 @@ func Getsave() (*Character) {
 
 	chara.inventaire.potion = get_line_int(string(data), 13)
 	chara.inventaire.potion_poison = get_line_int(string(data), 14)
-	chara.inventaire.piece_or = get_line_int(string(data), 15)
+	chara.inventaire.potion_mana = get_line_int(string(data), 15)
+	chara.inventaire.piece_or = get_line_int(string(data), 16)
 
-	chara.inventaire.Plume_de_Corbeau = get_line_int(string(data), 16)
-	chara.inventaire.Cuir_de_Sanglier = get_line_int(string(data), 17)
-	chara.inventaire.Fourrure_de_loup = get_line_int(string(data), 18)
-	chara.inventaire.Peau_de_Troll = get_line_int(string(data), 19)
+	chara.inventaire.Plume_de_Corbeau = get_line_int(string(data), 17)
+	chara.inventaire.Cuir_de_Sanglier = get_line_int(string(data), 18)
+	chara.inventaire.Fourrure_de_loup = get_line_int(string(data), 19)
+	chara.inventaire.Peau_de_Troll = get_line_int(string(data), 20)
 
-	chara.inventaire.Chapeau_de_l_aventurier = get_line_int(string(data), 20)
-	chara.inventaire.Tunique_de_l_aventurier = get_line_int(string(data), 21)
-	chara.inventaire.Bottes_de_l_aventurier = get_line_int(string(data), 22)
+	chara.inventaire.Chapeau_de_l_aventurier = get_line_int(string(data), 21)
+	chara.inventaire.Tunique_de_l_aventurier = get_line_int(string(data), 22)
+	chara.inventaire.Bottes_de_l_aventurier = get_line_int(string(data), 23)
 
-	chara.inventaire.size_max = get_line_int(string(data), 23)
+	chara.inventaire.size_max = get_line_int(string(data), 24)
 
-	chara.spell.poing = get_line_int(string(data), 24)
-	chara.spell.boule_de_feu = get_line_int(string(data), 25)
+	chara.spell.poing = get_line_int(string(data), 25)
+	chara.spell.boule_de_feu = get_line_int(string(data), 26)
 
-	chara.equipment.equipement_tete = get_line_int(string(data), 26)
-	chara.equipment.equipement_torse = get_line_int(string(data), 27)
-	chara.equipment.equipement_pieds = get_line_int(string(data), 28)
+	chara.equipment.equipement_tete = get_line_int(string(data), 27)
+	chara.equipment.equipement_torse = get_line_int(string(data), 28)
+	chara.equipment.equipement_pieds = get_line_int(string(data), 29)
 	return &chara
 }
 
 func Savegame(chara Character) {
-	file, _ :=os.OpenFile(".save", os.O_WRONLY, 0600)
+	file, _ := os.OpenFile(".save", os.O_WRONLY, 0600)
 
 	file.WriteString(chara.nom + "\n")
 	file.WriteString(chara.classe + "\n")
@@ -98,6 +99,7 @@ func Savegame(chara Character) {
 
 	file.WriteString(strconv.Itoa(chara.inventaire.potion) + "\n")
 	file.WriteString(strconv.Itoa(chara.inventaire.potion_poison) + "\n")
+	file.WriteString(strconv.Itoa(chara.inventaire.potion_mana) + "\n")
 	file.WriteString(strconv.Itoa(chara.inventaire.piece_or) + "\n")
 
 	file.WriteString(strconv.Itoa(chara.inventaire.Plume_de_Corbeau) + "\n")
@@ -110,10 +112,10 @@ func Savegame(chara Character) {
 	file.WriteString(strconv.Itoa(chara.inventaire.Bottes_de_l_aventurier) + "\n")
 
 	file.WriteString(strconv.Itoa(chara.inventaire.size_max) + "\n")
-	
+
 	file.WriteString(strconv.Itoa(chara.spell.poing) + "\n")
 	file.WriteString(strconv.Itoa(chara.spell.boule_de_feu) + "\n")
-	
+
 	file.WriteString(strconv.Itoa(chara.equipment.equipement_tete) + "\n")
 	file.WriteString(strconv.Itoa(chara.equipment.equipement_torse) + "\n")
 	file.WriteString(strconv.Itoa(chara.equipment.equipement_pieds) + "\n")
@@ -138,7 +140,7 @@ func Savegame(chara Character) {
 // 	potion int
 // 	potion_poison int
 // 	piece_or int
-	
+
 // 	Plume_de_Corbeau int
 // 	Cuir_de_Sanglier int
 // 	Fourrure_de_loup int
